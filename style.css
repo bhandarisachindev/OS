@@ -1,0 +1,232 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  overflow: hidden;
+  position: relative;
+  background-image: url("bg/14.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Segoe UI", sans-serif;
+  color: white;
+}
+
+
+
+.top-bar {
+  width: 100%;
+  height: 40px;
+  background-color: #15181B;
+  position: absolute;
+  top: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 12px;
+  cursor: pointer;
+}
+
+.navs {
+  display: flex;
+  gap: 14px;
+}
+
+.top-ele {
+  height: 22px;
+}
+
+.bottom-bar {
+  height: 52px;
+  background-color: #1D1E25;
+  position: absolute;
+  bottom: 16px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0 12px;
+  border-radius: 8px;
+}
+
+.bottom-bar img {
+  height: 48px;
+  padding: 0 5px;
+}
+
+
+#app-menu{
+  height: 524px;
+  width: 670px;
+  background-color: rgba(21, 23, 28, 0.8);
+  position: absolute;
+  bottom: 74px;
+  left: 154px;
+  backdrop-filter: blur(6px);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  display: none;
+  overflow: hidden;
+}
+
+#app-top{
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#app-top div img{
+  height: 30px;
+  padding: 5px 10px;
+  margin-top: 16px;
+}
+#app-top span{
+ border: 1px solid white;
+ position: absolute; 
+ height: 24px;
+ top: 12px;
+ width: 320px;
+ z-index: 8;
+ padding: 0 5px 0;
+}
+#app-top div input{
+  height: 22px;
+  width: 286px;
+  outline: none;
+  background: none;
+  border: none;
+  color: white;
+  z-index: -1;
+}
+
+#app-top  a{
+  position: absolute;
+  text-decoration: none;
+  color: white;
+  right: 20px;
+  top: 16px;
+}
+
+#app-mid-container{
+  height: 450px;
+}
+
+#app-mid {
+  width: 400px;
+  height: 100%;
+  margin: 5px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+
+#app-mid::-webkit-scrollbar {
+  width: 4px;
+}
+
+
+#app-mid::-webkit-scrollbar-track {
+  background: #85686c;
+  border-radius: 10px;
+}
+
+
+#app-mid::-webkit-scrollbar-thumb {
+  background-color: #85686c;
+  border-radius: 10px;
+  border: 2px solid ;
+}
+
+
+#app-mid::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}
+
+#app-fav{
+  margin-top: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-wrap: wrap;
+}
+
+.card{
+  height: 110px;
+  width: 95px;
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  flex-direction: column;
+  padding: 8px;
+
+   &:hover{
+    background-color: rgba(103, 44, 151,0.3);
+    border: 1px solid rgba(103, 44, 151,0.7);
+    border-radius: 6px;
+   }
+}
+.card p{
+  text-align: center;
+  font-size: 0.7rem;
+}
+
+.card img{
+  width: 10xp;
+  height: 54px;
+}
+
+#app-bottom{
+  margin: 5px;
+  height: 40px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#app-bottom p,#app-bottom i{
+  color: white;
+  font-size: 1.2rem;
+}
+
+#app-bottom div{
+  box-sizing: border-box;
+  margin-left: 10px;
+  display: flex;
+  gap: 6px;
+}
+
+#bottom-last{
+  margin-right: 10px;
+}
+
+a{
+  text-decoration: none;
+  color: white;
+}
+
+#app-cat{
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  gap: 2px;
+}
+
+#app-mid p{
+  color: white;
+  font-size: 0.8rem;
+}

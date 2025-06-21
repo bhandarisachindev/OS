@@ -1,0 +1,15 @@
+<svg width="800px" height="800px" viewBox="0 0 24 24" version="1.1" xml:space="preserve"
+     xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <style type="text/css">
+        .outline { fill: none; stroke: #ffffff; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+    </style>
+
+    <!-- Outer circle -->
+    <circle class="outline" cx="12" cy="12" r="10"/>
+
+    <!-- Lock body -->
+    <rect class="outline" x="8" y="10" width="8" height="6" rx="1"/>
+
+    <!-- Lock shackle -->
+    <path class="outline" d="M9 10V8a3 3 0 0 1 6 0v2"/>
+</svg>
