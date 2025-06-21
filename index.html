@@ -12,7 +12,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
   </head>
   <body>
-
     <div id="calendar"></div>
     <div class="top-bar">
       <div></div>
@@ -29,7 +28,7 @@
         <div id="date">June 21, 2025</div>
       </div>
       <img class="top-ele" src="/assets/lock.svg">
-      <img class="top-ele" src="/assets/left-arrow-direction-svgrepo-com.svg">
+      <img class="top-ele" id="logout-btn" src="/assets/left-arrow-direction-svgrepo-com.svg">
       </div>
     </div>
     <div class="bottom-bar">
@@ -37,7 +36,7 @@
       <img src="/assets/applications-system.png" >
       <img src="/assets/folder.png " >
       <img src="/assets/code-oss.png" >
-      <img src="/assets/brave.png" >
+      <img src="/assets/brave.png" >  
       <img src="/assets/discord.png" >
       <img src="/assets/spotify.png" >
     </div>
@@ -52,15 +51,33 @@
       </div>
       <div id="app-mid-container">
         <div id="app-mid">
-        <p>Note: Most websites block iframe embedding, so you will be redirected to their pages. If there is no associated website, nothing will happen.</p>
+        <p>Note: Most websites block iframe embedding, so you will be redirected to their Website. If there is no associated website, nothing will happen.</p>
         <div id="app-fav"></div>
-        <div id="app-cat"></div>
+      </div>
+      <div id="app-cat">
+        <div class="app-cat-card active">
+          <i class="ri-bookmark-line"></i>
+          <p>Favorites</p>
+        </div>
+        <div class="app-cat-card">
+          <i class="ri-layout-grid-fill"></i>
+          <p>All Applications</p>
+        </div>
+        <hr style="width: 96%;">
+        <div class="app-cat-card">
+          <i class="ri-information-line"></i>
+          <p>Help</p>
+        </div>
+        <div class="app-cat-card">
+          <img src="/assets/applications-development.png">
+          <p>Development</p>
+        </div>
       </div>
       </div>
       <div id="app-bottom">
         <div>
-          <div><i class="ri-layout-grid-fill"></i><p>Application</p></div>
-          <div><i class="ri-compass-3-line"></i><p>Places</p></div>
+          <div class="app-bottom-tag" style="border-top: 2px solid rgb(57, 57, 121);"><i class="ri-layout-grid-fill"></i><p>Application</p></div>
+          <div class="app-bottom-tag"><i class="ri-compass-3-line"></i><p>Places</p></div>
         </div>
         <div id="bottom-last">
           <div><i class="ri-logout-box-line"></i><p>Logout</p></div>
@@ -69,6 +86,19 @@
         </div>
       </div>
     </div>
-    <script src="app.js"></script>
+    <div>
+    <div class="logout">
+      <div><i class="ri-github-fill"></i><p>bhandarisachindev</p></div>
+      <div class="logout-icons">
+        <span ><i class="ri-lock-fill"></i>Lock</span>
+        <span class="restart"><i class="ri-restart-line"></i>Restart</span>
+        <span ><i class="ri-shut-down-fill"></i>Shut Down</span>
+        <span ><i class="ri-logout-box-fill"></i>Log Out</span>
+        <span ><i class="ri-close-circle-fill"></i>Cancel</span>
+      </div> 
+    </div>
+    </div>
+    
+    <script type="module" src="app.js"></script>
   </body>
 </html>

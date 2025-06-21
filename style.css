@@ -120,7 +120,9 @@ body {
 
 #app-mid-container{
   height: 450px;
+  display: flex;
 }
+
 
 #app-mid {
   width: 400px;
@@ -131,25 +133,27 @@ body {
 }
 
 
-#app-mid::-webkit-scrollbar {
+
+
+#app-mid::-webkit-scrollbar ,#app-cat::-webkit-scrollbar{
   width: 4px;
 }
 
 
-#app-mid::-webkit-scrollbar-track {
+#app-mid::-webkit-scrollbar-track,#app-cat::-webkit-scrollbar-track {
   background: #85686c;
   border-radius: 10px;
 }
 
 
-#app-mid::-webkit-scrollbar-thumb {
+#app-mid::-webkit-scrollbar-thumb, #app-cat::-webkit-scrollbar-thumb{
   background-color: #85686c;
   border-radius: 10px;
   border: 2px solid ;
 }
 
 
-#app-mid::-webkit-scrollbar-thumb:hover {
+#app-mid::-webkit-scrollbar-thumb:hover ,#app-cat::-webkit-scrollbar-thumb:hover{
   background-color: #555;
 }
 
@@ -213,6 +217,9 @@ body {
 #bottom-last{
   margin-right: 10px;
 }
+#bottom-last div{
+  padding-top: 5px;
+}
 
 a{
   text-decoration: none;
@@ -230,3 +237,89 @@ a{
   color: white;
   font-size: 0.8rem;
 }
+
+#app-cat{
+  display: flex;
+  align-items: start;
+  justify-content: start;
+  padding: 5px;
+  width: 250px;
+  flex-direction: column;
+  overflow-y: auto;
+  overflow-x: hidden;
+  gap: 10px;
+}
+
+.app-cat-card{
+  display: flex;
+  gap: 10px;
+  margin-left: 5px;
+  padding: 5px;
+  border: 1px solid transparent;
+  width: 95%;
+  align-items: center;
+  &:hover{
+    border: 1px solid rgba(103, 44, 151,0.7);
+    border-radius: 3px;
+    background-color: rgba(88, 15, 148, 0.2);
+  }
+}
+
+.app-cat-card img{
+  height: 24px;
+}
+
+.app-bottom-tag{
+  padding-top: 5px;
+}
+
+.active{
+  background-color: rgba(88, 15, 148, 0.2);
+  border: 1px solid rgba(103, 44, 151,0.7);
+  border-radius: 6px;
+}
+
+.logout{
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: black;
+  z-index: 9;
+  position: fixed;
+  display: none ;
+  align-items: center;
+  justify-content: center;
+  gap: 50px;
+  flex-direction: column;
+
+}
+.logout p{
+  font-size: 2rem;
+}
+.logout-icons{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+.logout i{
+  font-size: 200px;
+}
+
+.logout-icons span{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  gap: 10px;
+  text-align: center;
+  &:hover{
+    color: rgb(84, 84, 148);
+  }
+}
+
+.logout-icons i{
+  font-size: 4rem;
+  display: inline;
+}
+

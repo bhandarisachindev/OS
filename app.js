@@ -1,33 +1,38 @@
+import { favData , catData , iconMap} from "./data.js";
+
 const dateTime = document.querySelector(".datetime-widget");
 const calendarEl = document.getElementById("calendar");
 const other = document.getElementById("otherData");
 const fav=document.getElementById("app-fav");
 const appLaunch = document.getElementById("app-launch");
 const appMenu = document.getElementById("app-menu");
+const catContainer = document.getElementById("app-cat"); 
+const logout = document.getElementById("logout-btn");
+const logoutDiv = document.querySelector(".logout");
+const logoutClose = document.querySelector(".ri-close-circle-fill");
 
+
+let logoutState=false;
 let calendarState = false;
 let otherData = false;
 let appMenuStatus = false;
 let calendar;
 
-let favData=[
-  {link:"https://www.google.com/",image:"/assets/google-chrome.png",app:"Google Chrome"},
-  {image:"/assets/vlc.png",app:"VLC media player"},
-  {image:"/assets/vim.png",app:"Vim"},
-  {link:"https://web.telegram.org/k/",image:"/assets/telegram.png",app:"Telegram"},
-  {link:"https://open.spotify.com/",image:"/assets/spotify.png",app:"Spotify"},
-  {link:"	https://www.figma.com/",image:"/assets/figma.png",app:"Figma Linux"},
-  {link:"https://web.whatsapp.com/",image:"/assets/brave.png",app:"WhatsApp Web"},
-  {link:"https://vscode.dev/",image:"/assets/code-oss.png",app:"Code-OSS"},
-  {image:"/assets/tmaster.png",app:"TypingMaster Pro"},
-  {link:"https://discord.com/app",image:"/assets/discord.png",app:"Discord"},
-  {image:"/assets/sticky.png",app:"Sticky Notes"},
-  {link:"https://www.notion.so/",image:"/assets/notion.png",app:"Notion"},  
-  {image:"/assets/firefox.png",app:"Firefox"}
-]
 
 
-//weather api https://wttr.in/Delhi?format=j1
+
+
+logout.addEventListener("click",()=>{
+  logoutDiv.style.display="flex";
+  logoutState=!logoutState;}
+);
+
+logoutClose.addEventListener("click",()=>{
+  logoutDiv.style.display="none";
+  logoutState=!logoutState;
+})
+
+
 
 other.addEventListener("click", () => {
   if(!otherData){
@@ -105,6 +110,13 @@ favData.forEach(e => {
   card.innerHTML = `<div class="card"><img src="${e.image}"><p>${e.app}</p></div>`;
   fav.appendChild(card);
 });
+catData.forEach(e => {
+  const card = document.createElement("div");
+  card.setAttribute("class","app-cat-card");
+  card.innerHTML=` <img src=${e.image}><p>${e.title}</p>`
+  
+  catContainer.appendChild(card);
+});
 
 appLaunch.addEventListener("click",()=>{
   if(!appMenuStatus){
@@ -116,23 +128,5 @@ appLaunch.addEventListener("click",()=>{
   }
 });
 
-function loadIframeInBody(url) {
-  const existing = document.getElementById("preview-iframe");
-  if (existing) existing.remove();
 
-  const iframe = document.createElement("iframe");
-  iframe.src = url;
-  iframe.id = "preview-iframe";
-  iframe.width = "600";
-  iframe.height = "400";
-  iframe.style.position = "fixed";
-  iframe.style.bottom = "20px";
-  iframe.style.right = "20px";
-  iframe.style.border = "2px solid #333";
-  iframe.style.zIndex = "9999";
-  iframe.style.background = "white";
-  iframe.style.boxShadow = "0 0 10px rgba(0,0,0,0.3)";
-  iframe.loading = "lazy";
 
-  document.body.appendChild(iframe);
-}
