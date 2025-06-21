@@ -95,7 +95,7 @@ dateTime.addEventListener("click", () => {
 
 const bgChange = () => {
   const i = Math.floor(Math.random() * 21);
-  document.body.style.backgroundImage = `url('bg/1.jpg')`;
+  document.body.style.backgroundImage = `url('bg/${i}.jpg')`;
 };
 
 
