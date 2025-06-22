@@ -10,14 +10,14 @@
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <link rel="stylesheet" href="weather.css">
   </head>
   <body>
     <div id="calendar"></div>
     <div class="top-bar">
-      <div></div>
+      <div id="weather-toggle"></div>
       <div class="navs">
       <img class="top-ele" src="/assets/colour-picker-svgrepo-com.svg">
-      <img class="top-ele" src="/assets/notion.png">
       <img class="top-ele" src="/assets/clipboard-svgrepo-com.svg">
       <img class="top-ele" src="/assets/audio-volume-high-symbolic.svg">
       <img class="top-ele" src="/assets/brightness-svgrepo-com.svg">
@@ -87,18 +87,34 @@
       </div>
     </div>
     <div>
-    <div class="logout">
-      <div><i class="ri-github-fill"></i><p>bhandarisachindev</p></div>
-      <div class="logout-icons">
-        <span ><i class="ri-lock-fill"></i>Lock</span>
-        <span class="restart"><i class="ri-restart-line"></i>Restart</span>
-        <span ><i class="ri-shut-down-fill"></i>Shut Down</span>
-        <span ><i class="ri-logout-box-fill"></i>Log Out</span>
-        <span ><i class="ri-close-circle-fill"></i>Cancel</span>
-      </div> 
+      <div class="logout">
+        <div><i class="ri-github-fill"></i><p>bhandarisachindev</p></div>
+        <div class="logout-icons">
+          <span ><i class="ri-lock-fill"></i>Lock</span>
+          <span class="restart"><i class="ri-restart-line"></i>Restart</span>
+          <span ><i class="ri-shut-down-fill"></i>Shut Down</span>
+          <span ><i class="ri-logout-box-fill"></i>Log Out</span>
+          <span ><i class="ri-close-circle-fill"></i>Cancel</span>
+        </div> 
+      </div>
     </div>
+    <div class="weather-card">
+      <div id="weather-city">Loading...</div>
+      <div id="weather">
+        <p id="temp">36&degC</p>
+        <span id="image-conatiner">
+          <img id="weather-icon" src="/assets/Weather/day.svg">
+          <p id="weather-title">Sunny</p>
+        </span>
+        <span id="weather-details">
+          <p id="humidity">Humidity: 90%</p>
+          <p id="pressure">Pressure: 100bar</p>
+        </span>
+      </div>
+      <div id="upcoming-weather">
+        
+      </div>
     </div>
-    
     <script type="module" src="app.js"></script>
   </body>
 </html>

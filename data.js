@@ -28,9 +28,9 @@ export const catData=[
 
 
 export const iconMap = {
-  "113": "day.svg",
-  "116": "cloudy-day-1.svg",
-  "119": "cloudy-day-2.svg",
+  "113": {"true":"day.svg","false":"night.svg"},
+  "116": {"true":"cloudy-day.svg","false":"cloudy.svg"},
+  "119": {"true":"cloudy-day.svg","false":"cloudy.svg"},
   "122": "cloudy.svg",
   "143": "cloudy.svg",
   "176": "rainy-1.svg",
