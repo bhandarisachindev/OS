@@ -198,6 +198,8 @@ window.addEventListener("click",(e)=>{
 })
 
 other.addEventListener("click",otherBar);
+calendarEl.addEventListener("click",e=>e.stopPropagation());
+document.querySelector(".weather-card").addEventListener("click",e=>e.stopPropagation());
 
 function otherBar(e){
   e.stopPropagation(e);
