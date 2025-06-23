@@ -4,11 +4,11 @@ class topBar extends HTMLElement{
       super()
       this.innerHTML=`<div class="top-bar">
         <div id="weather-toggle">
-          <img id="weather-toggle-icon" src="/assets/weather/day.svg">
+          <img id="weather-toggle-icon" src="assets/Weather/day.svg">
         </div>
         <div class="navs">
-        <img class="top-ele" src="/assets/colour-picker-svgrepo-com.svg">
-        <img class="top-ele" src="/assets/clipboard-svgrepo-com.svg">
+        <img id="toggle-picker" class="top-ele toggle-btn" title="Toggle color picker" src="/assets/colour-picker-svgrepo-com.svg">
+        <img id="toggle-notes" class="top-ele toggle-btn" title="Toggle notes" src="/assets/clipboard-svgrepo-com.svg">
         <img class="top-ele" src="/assets/audio-volume-high-symbolic.svg">
         <img class="top-ele" src="/assets/brightness-svgrepo-com.svg">
         <img class="top-ele" src="/assets/wifi-high-svgrepo-com.svg">
@@ -38,7 +38,7 @@ class topBar extends HTMLElement{
         <img src="/assets/code-oss.png" >
         <img src="/assets/brave.png" >  
         <img src="/assets/discord.png" >
-        <img src="/assets/spotify.png" >
+        <img id="music" src="/assets/spotify.png" >
       </div>`
     }
   }
@@ -110,7 +110,7 @@ class topBar extends HTMLElement{
           <p id="temp">36&degC</p>
           <span id="image-conatiner">
             <img id="weather-icon" src="/assets/Weather/day.svg">
-            <p id="weather-title">Sunny</p>
+            <p id="weather-title"></p>
           </span>
           <span id="weather-details">
             <p id="humidity">Humidity: 90%</p>
@@ -147,3 +147,30 @@ class topBar extends HTMLElement{
   }
   
   customElements.define("log-out",logOut);
+
+  class colorPicker extends HTMLElement{
+    constructor(){
+      super()
+      this.innerHTML=`<div class="picker-container" id="picker-container">
+        <div class="main-container">
+            <div class="controls">
+                <button id="pick-color">Pick Color</button>
+                <div class="instructions">Click the button to activate the color picker</div>
+            </div>
+            <div class="color-grid" id="color-grid"></div>
+        </div>
+    </div>`
+    }
+  }
+
+  customElements.define("color-picker",colorPicker);
+
+
+  class notesApp extends HTMLElement{
+    constructor(){
+      super()
+      this.innerHTML=``
+    }
+  }
+
+  customElements.define("notes-app",notesApp);

@@ -19,7 +19,6 @@ body{
     width: 100vw;
 }
 
-/* X Bar styles */
 .x-bar {
     display: flex;
     align-items: center;
@@ -54,7 +53,7 @@ body{
 }
 
 /* Topbar styles */
-.topbar {
+.top-bar-files {
     display: flex;
     align-items: center;
     background-color: #272B2F;
