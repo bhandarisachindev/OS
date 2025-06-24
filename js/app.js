@@ -201,3 +201,37 @@ other.addEventListener("click", (e) => {
 
 calendarEl.addEventListener("click", e => e.stopPropagation());
 document.querySelector(".weather-card")?.addEventListener("click", e => e.stopPropagation());
+
+
+
+
+
+
+  const noteItems = document.querySelectorAll(".sticky-notes");
+  let activeNote = null;
+  let offset = { x: 0, y: 0 };
+
+  noteItems.forEach(note => {
+    note.addEventListener("mousedown", (e) => {
+      activeNote = note;
+      offset.x = e.clientX - note.offsetLeft;
+      offset.y = e.clientY - note.offsetTop;
+      note.style.cursor = "grabbing";
+      note.style.zIndex = 50;
+    });
+  });
+
+  document.addEventListener("mouseup", () => {
+    if (activeNote) {
+      activeNote.style.cursor = "grab";
+      activeNote.style.zIndex = '5'; 
+      activeNote = null;
+    }
+  });
+
+  document.addEventListener("mousemove", (e) => {
+    if (activeNote) {
+      activeNote.style.left = `${e.clientX - offset.x}px`;
+      activeNote.style.top = `${e.clientY - offset.y}px`;
+    }
+  });  

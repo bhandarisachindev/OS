@@ -8,7 +8,7 @@ class topBar extends HTMLElement{
         </div>
         <div class="navs">
         <img id="toggle-picker" class="top-ele toggle-btn" title="Toggle color picker" src="/assets/colour-picker-svgrepo-com.svg">
-        <img id="toggle-notes" class="top-ele toggle-btn" title="Toggle notes" src="/assets/clipboard-svgrepo-com.svg">
+        <img id="toggle-notes" class="top-ele" src="/assets/clipboard-svgrepo-com.svg">
         <img class="top-ele" src="/assets/audio-volume-high-symbolic.svg">
         <img class="top-ele" src="/assets/brightness-svgrepo-com.svg">
         <img class="top-ele" src="/assets/wifi-high-svgrepo-com.svg">
@@ -174,3 +174,6 @@ class topBar extends HTMLElement{
   }
 
   customElements.define("notes-app",notesApp);
+
+
+  
