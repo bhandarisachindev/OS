@@ -1,30 +1,28 @@
-
 class topBar extends HTMLElement{
     constructor(){
       super()
       this.innerHTML=`<div class="top-bar">
         <div id="weather-toggle">
-          <img id="weather-toggle-icon" src="assets/Weather/day.svg">
+          <img id="weather-toggle-icon" src="assets/icons/Weather/day.svg">
         </div>
         <div class="navs">
-        <img id="toggle-picker" class="top-ele toggle-btn" title="Toggle color picker" src="/assets/colour-picker-svgrepo-com.svg">
-        <img id="toggle-notes" class="top-ele" src="/assets/clipboard-svgrepo-com.svg">
-        <img class="top-ele" src="/assets/audio-volume-high-symbolic.svg">
-        <img class="top-ele" src="/assets/brightness-svgrepo-com.svg">
-        <img class="top-ele" src="/assets/wifi-high-svgrepo-com.svg">
-        <img class="top-ele" id="otherData" src="/assets/down-arrow-backup-2-svgrepo-com.svg">
+        <img id="toggle-picker" class="top-ele toggle-btn" title="Toggle color picker" src="/assets/icons/colour-picker-svgrepo-com.svg">
+        <img id="toggle-notes" class="top-ele" src="/assets/icons/clipboard-svgrepo-com.svg">
+        <img class="top-ele" src="/assets/icons/audio-volume-high-symbolic.svg">
+        <img class="top-ele" src="/assets/icons/brightness-svgrepo-com.svg">
+        <img class="top-ele" src="/assets/icons/wifi-high-svgrepo-com.svg">
+        <img class="top-ele" id="otherData" src="/assets/icons/down-arrow-backup-2-svgrepo-com.svg">
         <div class="top-ele datetime-widget" >
           <div id="time">00:00</div>
           <div id="date">June 21, 2025</div>
         </div>
-        <img class="top-ele" src="/assets/lock.svg">
-        <img class="top-ele" id="logout-btn" src="/assets/left-arrow-direction-svgrepo-com.svg">
+        <img class="top-ele" src="/assets/icons/lock.svg">
+        <img class="top-ele" id="logout-btn" src="/assets/icons/left-arrow-direction-svgrepo-com.svg">
         </div>
       </div>`
     }
   }
-  
-  customElements.define("top-bar",topBar);
+
   
   //bottom-bar
   
@@ -32,18 +30,18 @@ class topBar extends HTMLElement{
     constructor(){
       super()
       this.innerHTML=`<div class="bottom-bar">
-        <img id="app-launch" src="/assets/archlinux-logo.png">
-        <img src="/assets/applications-system.png" >
-        <img id="files" src="/assets/folder.png " >
-        <img src="/assets/code-oss.png" >
-        <img src="/assets/brave.png" >  
-        <img src="/assets/discord.png" >
-        <img id="music" src="/assets/spotify.png" >
+        <img id="app-launch" src="/assets/icons/zwlogo.avif">
+        <img src="/assets/icons/applications-system.avif" >
+        <img id="files" src="/assets/icons/folder.avif" >
+        <img src="/assets/icons/code-oss.avif" >
+        <img id="brave" src="/assets/icons/google-chrome.avif" >  
+        <img src="/assets/icons/discord.avif" >
+        <img id="music" src="/assets/icons/music.avif" >
       </div>`
     }
   }
   
-  customElements.define("bottom-bar",bottomBar);
+
   
   //app-menu
   class appMenu extends HTMLElement{
@@ -52,8 +50,8 @@ class topBar extends HTMLElement{
       this.innerHTML=`<div id="app-menu">
         <div id="app-top">
           <div>
-          <img src="/assets/pin-svgrepo-com.svg">
-          <img src="/assets/setting-config-svgrepo-com.svg">
+          <img src="/assets/icons/pin-svgrepo-com.svg">
+          <img src="/assets/icons/setting-config-svgrepo-com.svg">
           <span>🔍<input type="text" placeholder=" Search..."></span>
           </div>
          <a href="https://github.com/bhandarisachindev" target="_blank" rel="noopener noreferrer"><i class="ri-github-fill"></i> bhandarisachindev</a>
@@ -78,7 +76,7 @@ class topBar extends HTMLElement{
             <p>Help</p>
           </div>
           <div class="app-cat-card">
-            <img src="/assets/applications-development.png">
+            <img src="/assets/icons/applications-development.avif">
             <p>Development</p>
           </div>
         </div>
@@ -97,7 +95,7 @@ class topBar extends HTMLElement{
     }
   }
   
-  customElements.define("app-menu",appMenu);
+
   
   //weather-card
   
@@ -109,12 +107,12 @@ class topBar extends HTMLElement{
         <div id="weather">
           <p id="temp">36&degC</p>
           <span id="image-conatiner">
-            <img id="weather-icon" src="/assets/Weather/day.svg">
+            <img id="weather-icon" src="/assets/icons/Weather/day.svg">
             <p id="weather-title"></p>
           </span>
           <span id="weather-details">
             <p id="humidity">Humidity: 90%</p>
-            <p id="pressure">Pressure: 100bar</p>
+            <p id="pressure">Pressure: 100 hPa</p>
           </span>
         </div>
         <div id="upcoming-weather">
@@ -123,7 +121,7 @@ class topBar extends HTMLElement{
     }
   }
   
-  customElements.define("weather-card",weatherCard);
+ 
   
   
   //logout 
@@ -145,8 +143,8 @@ class topBar extends HTMLElement{
       </div>`
     }
   }
-  
-  customElements.define("log-out",logOut);
+
+
 
   class colorPicker extends HTMLElement{
     constructor(){
@@ -163,17 +161,132 @@ class topBar extends HTMLElement{
     }
   }
 
-  customElements.define("color-picker",colorPicker);
 
 
-  class notesApp extends HTMLElement{
+
+class fileManager extends HTMLElement{
     constructor(){
       super()
-      this.innerHTML=``
+      this.innerHTML=`<div class="file-manager">
+        <div class="x-bar">
+            <a href="index.html" class="x-button">
+                <i class="ri-close-line"></i>
+            </a>
+        </div>
+        
+        <div class="top-bar-files">
+            <div class="left-section">
+                <button class="nav-button back-button">
+                    <i class="ri-arrow-left-s-line"></i>
+                </button>
+                <button class="nav-button forward-button">
+                    <i class="ri-arrow-right-s-line"></i>
+                </button>
+                <div class="view-button">
+                    <i class="ri-grid-line"></i>
+                    <i class="ri-arrow-down-s-line dropdown-arrow"></i>
+                </div>
+            </div>
+
+            <div class="address-bar">
+                <div class="location-text">Trash</div>
+            </div>
+
+            <div class="right-section">
+                <button class="action-button">
+                    <i class="ri-delete-bin-line"></i>
+                    Empty Trash
+                </button>
+                <button class="action-button split-button">
+                    <i class="ri-layout-2-line"></i>
+                    Split
+                </button>
+                <button class="icon-button search-button">
+                    <i class="ri-search-line"></i>
+                </button>
+                <button class="icon-button menu-button">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="content">
+            <div class="sidebar">
+                <div class="sidebar-header">Places</div>
+                <div class="sidebar-item">
+                    <i class="ri-home-line"></i>
+                    <span>Home</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="ri-download-line"></i>
+                    <span>Downloads</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="ri-code-s-slash-line"></i>
+                    <span>Code</span>
+                </div>
+                <div class="sidebar-item ">
+                    <i class="ri-delete-bin-line"></i>
+                    <span>Trash</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="ri-film-line"></i>
+                    <span>Movie</span>
+                </div>
+
+                <div class="sidebar-header">Remote</div>
+                <div class="sidebar-item">
+                    <i class="ri-wifi-line"></i>
+                    <span>Network</span>
+                </div>
+
+                <div class="sidebar-header">Recent</div>
+                <div class="sidebar-item">
+                    <i class="ri-file-list-line"></i>
+                    <span>Recent Files</span>
+                </div>
+                <div class="sidebar-item">
+                    <i class="ri-map-pin-line"></i>
+                    <span>Recent Locations</span>
+                </div>
+
+                <div class="sidebar-header">Devices</div>
+                <div class="sidebar-item">
+                    <i class="ri-hard-drive-line"></i>
+                    <span>238.0 GiB Internal Drive</span>
+                </div>
+            </div>
+
+            <div class="main-area">
+                <div id="trash-content">
+                    <div class="table-header">
+                        <div class="column name-column">Name</div>
+                        <div class="column path-column">Path</div>
+                        <div class="column deletion-time-column">Deletion Time</div>
+                    </div>
+                    
+                    <div id="folder-container">
+                    </div>
+                    
+                    <div class="empty-message" id="empty-message">Trash is empty</div>
+                    <div class="status-bar">
+                        <span id="status-count">0 folders, 0 files</span>
+                    </div>
+                </div>
+
+                <div id="dynamic-content">
+                </div>
+            </div>
+        </div>
+</div>`
     }
   }
-
-  customElements.define("notes-app",notesApp);
-
-
   
+
+  customElements.define("files-app",fileManager);
+  customElements.define("color-picker",colorPicker);
+  customElements.define("weather-card",weatherCard);
+  customElements.define("top-bar",topBar);
+  customElements.define("bottom-bar",bottomBar);
+  customElements.define("app-menu",appMenu);
+  customElements.define("log-out",logOut);

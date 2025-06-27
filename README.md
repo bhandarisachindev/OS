@@ -16,14 +16,6 @@ A lightweight, modular, and interactive web-based desktop environment built with
 
 > UI components like volume, brightness, logout, and dock applications are visually functional and will be made interactive in upcoming releases.
 
-## 🖼️ Project Preview
-
-<p align="center">
-  <img src="assets/1.png" width="300" alt="Preview 1">
-  <img src="assets/2.png" width="300" alt="Preview 2">
-  <img src="assets/3.png" width="300" alt="Preview 3">
-  <img src="assets/4.png" width="300" alt="Preview 4">
-</p>
 
 ## 🛠️ Tech Stack
 

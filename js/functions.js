@@ -1,4 +1,4 @@
-  import { iconMap } from "./data.js";
+import { iconMap } from "./data.js";
 
 export function topBarHide(topBar) {
   gsap.to(topBar, { top: -30, duration: 0.4, ease: "power2.in" });
@@ -25,7 +25,7 @@ export function updateTimeAndDate() {
 
 export const bgChange = () => {
   const i = Math.floor(Math.random() * 21);
-  document.body.style.backgroundImage = `url('../bg/${i}.jpg')`;
+  document.body.style.backgroundImage = `url('../assets/bg/${i}.avif')`;
 };
 
 export async function getUserCity() {
@@ -60,8 +60,8 @@ export const fetchWeather = async (city, weatherData, wIcon, upcominWeather) => 
       const wCode = weatherData.current_condition[0].weatherCode;
 
       wIcon = (iconMap[wCode] && (wCode == 113 || wCode == 116 || wCode == 119))
-        ? iconMap[wCode][isDaytime]
-        : iconMap[wCode] || iconMap["default"];
+    ? iconMap[wCode][isDaytime]
+    : (iconMap[wCode]?.[isDaytime] || iconMap["default"][isDaytime]);
 
       weatherData.weather.forEach(day => {
         let totalChance = 0;
@@ -92,8 +92,8 @@ export const fetchWeather = async (city, weatherData, wIcon, upcominWeather) => 
       const humidityEl = document.getElementById("humidity");
       const pressureEl = document.getElementById("pressure");
 
-      if (toggleIconEl) toggleIconEl.src = `../assets/Weather/${wIcon}`;
-      if (iconEl) iconEl.src = `../assets/Weather/${wIcon}`;
+      if (toggleIconEl) toggleIconEl.src = `../assets/icons/Weather/${wIcon}`;
+      if (iconEl) iconEl.src = `../assets/icons/Weather/${wIcon}`;
       if (cityEl) cityEl.innerHTML = `${cityW}, ${countryW}`;
       if (tempEl) tempEl.innerHTML = `${temp}&degC`;
       if (humidityEl) humidityEl.innerHTML = `Humidity: ${humidity}%`;

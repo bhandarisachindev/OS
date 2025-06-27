@@ -4,9 +4,9 @@
 .weather-card{
   background-color: rgba(21, 23, 28, 0.7);
   backdrop-filter: blur(6px);
-  height: 284px;  
+  height: 300px;  
   width: 450px;
-  border-radius: 0 0 6px;
+  border-radius: 0 0 8px;
   position: fixed;
   top: 40px;
   left: 0;
@@ -234,7 +234,7 @@
   padding: 0 5px;
   border-bottom: 3px solid #1D1E25;
   &:hover{
-    scale: 1.2;
+    scale: 1.1;
   }
 }
 

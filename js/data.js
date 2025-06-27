@@ -1,28 +1,25 @@
 export const favData=[
-  {link:"https://www.google.com/",image:"../assets/google-chrome.png",app:"Google Chrome"},
-  {image:"../assets/vlc.png",app:"VLC media player"},
-  {image:"../assets/vim.png",app:"Vim"},
-  {link:"https://web.telegram.org/k/",image:"../assets/telegram.png",app:"Telegram"},
-  {link:"https://open.spotify.com/",image:"../assets/spotify.png",app:"Spotify"},
-  {link:"https://www.figma.com/",image:"../assets/figma.png",app:"Figma Linux"},
-  {link:"https://web.whatsapp.com/",image:"../assets/brave.png",app:"WhatsApp Web"},
-  {link:"https://vscode.dev/",image:"../assets/code-oss.png",app:"Code-OSS"},
-  {image:"../assets/tmaster.png",app:"TypingMaster Pro"},
-  {link:"https://discord.com/app",image:"../assets/discord.png",app:"Discord"},
-  {image:"../assets/sticky.png",app:"Sticky Notes"},
-  {link:"https://www.notion.so/",image:"../assets/notion.png",app:"Notion"},  
-  {image:"../assets/firefox.png",app:"Firefox"}
+  {image:"../assets/icons/google-chrome.avif",app:"Google Chrome"},
+  {image:"../assets/icons/vlc.png",app:"VLC media player"},
+  {image:"../assets/icons/vim.png",app:"Vim"},
+  {link:"https://web.telegram.org/k/",image:"../assets/icons/telegram.png",app:"Telegram"},
+  {link:"https://open.spotify.com/",image:"../assets/icons/music.avif",app:"Music"},
+  {link:"https://vscode.dev/",image:"../assets/icons/code-oss.avif",app:"VS Code"},
+  {image:"../assets/icons/tmaster.png",app:"TypingMaster Pro"},
+  {link:"https://discord.com/app",image:"../assets/icons/discord.avif",app:"Discord"},
+  {image:"../assets/icons/sticky.png",app:"Sticky Notes"},
+  {link:"https://www.notion.so/",image:"../assets/icons/notion.png",app:"Notion"},  
+  {image:"../assets/icons/firefox.avif",app:"Firefox"}
 ]
 
 export const catData=[
-  {image:"../assets/games-app.png",title:"Games"},
-  {image:"../assets/applications-graphics.png",title:"Graphics"},
-  {image:"../assets/gnome-internet.png",title:"Internet"},
-  {image:"../assets/applications-multimedia.png",title:"Multimedia"},
-  {image:"../assets/applications-office.png",title:"Office"},
-  {image:"../assets/applications-system.png",title:"System"},
-  {image:"../assets/applications-utilities.png",title:"Utilities"},
-  {image:"../assets/wine.png",title:"Wine"}
+  {image:"../assets/icons/games-app.avif",title:"Games"},
+  {image:"../assets/icons/applications-graphics.avif",title:"Graphics"},
+  {image:"../assets/icons/gnome-internet.avif",title:"Internet"},
+  {image:"../assets/icons/applications-multimedia.avif",title:"Multimedia"},
+  {image:"../assets/icons/applications-office.avif",title:"Office"},
+  {image:"../assets/icons/applications-system.avif",title:"System"},
+  {image:"../assets/icons/applications-utilities.avif",title:"Utilities"}
 ]
 
 
@@ -62,5 +59,5 @@ export const iconMap = {
   "389": "thunder.svg",
   "392": "thunder.svg",
   "395": "thunder.svg",
-  "default": "weather.svg"
+  "default": {"true":"day.svg","false":"night.svg"}
 };
