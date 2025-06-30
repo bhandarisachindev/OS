@@ -1,14 +1,14 @@
 export const favData=[
   {image:"../assets/icons/google-chrome.avif",app:"Google Chrome"},
-  {image:"../assets/icons/vlc.png",app:"VLC media player"},
-  {image:"../assets/icons/vim.png",app:"Vim"},
-  {link:"https://web.telegram.org/k/",image:"../assets/icons/telegram.png",app:"Telegram"},
+  {image:"../assets/icons/vlc.avif",app:"VLC media player"},
+  {image:"../assets/icons/vim.avif",app:"Vim"},
+  {link:"https://web.telegram.org/k/",image:"../assets/icons/telegram.avif",app:"Telegram"},
   {link:"https://open.spotify.com/",image:"../assets/icons/music.avif",app:"Music"},
   {link:"https://vscode.dev/",image:"../assets/icons/code-oss.avif",app:"VS Code"},
-  {image:"../assets/icons/tmaster.png",app:"TypingMaster Pro"},
+  {image:"../assets/icons/tmaster.avif",app:"TypingMaster Pro"},
   {link:"https://discord.com/app",image:"../assets/icons/discord.avif",app:"Discord"},
-  {image:"../assets/icons/sticky.png",app:"Sticky Notes"},
-  {link:"https://www.notion.so/",image:"../assets/icons/notion.png",app:"Notion"},  
+  {image:"../assets/icons/sticky.avif",app:"Sticky Notes"},
+  {link:"https://www.notion.so/",image:"../assets/icons/notion.avif",app:"Notion"},  
   {image:"../assets/icons/firefox.avif",app:"Firefox"}
 ]
 

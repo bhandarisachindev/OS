@@ -21,6 +21,15 @@ body {
   z-index: 1;
 }
 
+#open-apps{
+  height: 500px;
+  width: 500px;
+}
+
+/* #open-app .window{
+  
+} */
+
 .gcse-search{
   margin-top: 100px;
 }
@@ -32,42 +41,28 @@ body {
   overflow-x: hidden;
 }
 
-.x-bar {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  background-color: #161A1C;
-  height: 40px;
-  width: 100%;
-  border-bottom: 1px solid #3a3f44;
-}
-
-.x-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #272B2F;
-  color: #d8dee9;
-  text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.x-button:hover {
-  background-color: #3a4149;
-  transform: scale(1.05);
-}
-
-.x-button i {
-  font-size: 22px;
-}
 .gsc-control-cse{
   background-color: #161A1C;
 }
 
 .google-main{
   margin-top: 50px;
+}
+
+.app-bar{
+  height: 40px;
+  width: 100%;
+  background-color: #15181B;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 5px 16px;
+  gap: 10px;
+}
+
+.app-bar img{
+  height: 100%;
+  &:hover{
+    scale: 1.1;
+  }
 }

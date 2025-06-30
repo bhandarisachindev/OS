@@ -1,6 +1,4 @@
 
-
-
 .weather-card{
   background-color: rgba(21, 23, 28, 0.7);
   backdrop-filter: blur(6px);
@@ -42,7 +40,6 @@
   justify-content: center;
   gap: 0px;
 }
-
 #weather-title{
   font-size: 1rem;
   position: absolute;

@@ -1,64 +1,12 @@
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
 
-
-
-body{
-  background: #161A1C !important;
-  background-image: none;
-  height: 100vh;
-  width: 100vw;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: "Segoe UI", sans-serif;
-  color: white;
-  position: relative;
-  overflow: hidden;
-}
 /* Files App Component Styles */
 .file-manager {
   display: flex;
   flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-}
-
-.x-bar {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  background-color: #161A1C;
-  height: 40px;
+  height: 100%;
   width: 100%;
-  padding: 0 16px;
-  border-bottom: 1px solid #3a3f44;
 }
 
-.x-button {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
-  background-color: #272B2F;
-  color: #d8dee9;
-  text-decoration: none;
-  transition: background-color 0.2s ease, transform 0.1s ease;
-}
-
-.x-button:hover {
-  background-color: #3a4149;
-  transform: scale(1.05);
-}
-
-.x-button i {
-  font-size: 22px;
-}
 
 /* Topbar styles */
 .top-bar-files {

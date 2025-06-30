@@ -1,29 +1,9 @@
-const folderData = [
-  {
-    name: "Project Documents",
-    path: "/home/user/Documents",
-    deletionTime: "Today, 10:23 AM"
-  },
-  {
-    name: "Photos",
-    path: "/home/user/Pictures",
-    deletionTime: "Yesterday, 4:15 PM"
-  },
-  {
-    name: "Backup Files",
-    path: "/home/user/Backups",
-    deletionTime: "Jun 20, 2:30 PM"
-  },
-  {
-    name: "Old Downloads",
-    path: "/home/user/Downloads",
-    deletionTime: "Jun 18, 11:45 AM"
-  },
-  {
-    name: "Presentation",
-    path: "/home/user/Documents/Work",
-    deletionTime: "Jun 15, 9:20 AM"
-  }
+export const folderData = [
+  { name: "Project Documents", path: "/home/user/Documents", deletionTime: "Today, 10:23 AM" },
+  { name: "Photos", path: "/home/user/Pictures", deletionTime: "Yesterday, 4:15 PM" },
+  { name: "Backup Files", path: "/home/user/Backups", deletionTime: "Jun 20, 2:30 PM" },
+  { name: "Old Downloads", path: "/home/user/Downloads", deletionTime: "Jun 18, 11:45 AM" },
+  { name: "Presentation", path: "/home/user/Documents/Work", deletionTime: "Jun 15, 9:20 AM" }
 ];
 
 function createFolderItem(folder) {
@@ -38,9 +18,8 @@ function createFolderItem(folder) {
   return folderItem;
 }
 
-function renderFolders() {
+export function renderFolders() {
   const folderContainer = document.getElementById('folder-container');
-  const emptyMessage = document.getElementById('empty-message');
   const statusCount = document.getElementById('status-count');
 
   folderContainer.innerHTML = '';
@@ -58,15 +37,7 @@ function renderFolders() {
   }
 }
 
-document.addEventListener('DOMContentLoaded', () => {
-  renderFolders();
-  const emptyTrashButton = document.querySelector('.action-button');
-  emptyTrashButton.addEventListener('click', () => {
-    renderFolders();
-  });
-});
-
-const areaComponents = {
+export const areaComponents = {
   home: {
     title: "Home",
     icon: "ri-home-line",
@@ -76,30 +47,12 @@ const areaComponents = {
         <p>Quick access to your files and folders</p>
       </div>
       <div class="area-grid">
-        <div class="area-item">
-          <i class="ri-file-text-line"></i>
-          <span>Documents</span>
-        </div>
-        <div class="area-item">
-          <i class="ri-image-line"></i>
-          <span>Pictures</span>
-        </div>
-        <div class="area-item">
-          <i class="ri-music-line"></i>
-          <span>Music</span>
-        </div>
-        <div class="area-item">
-          <i class="ri-video-line"></i>
-          <span>Videos</span>
-        </div>
-        <div class="area-item">
-          <i class="ri-download-line"></i>
-          <span>Downloads</span>
-        </div>
-        <div class="area-item">
-          <i class="ri-cloud-line"></i>
-          <span>Cloud Storage</span>
-        </div>
+        <div class="area-item"><i class="ri-file-text-line"></i><span>Documents</span></div>
+        <div class="area-item"><i class="ri-image-line"></i><span>Pictures</span></div>
+        <div class="area-item"><i class="ri-music-line"></i><span>Music</span></div>
+        <div class="area-item"><i class="ri-video-line"></i><span>Videos</span></div>
+        <div class="area-item"><i class="ri-download-line"></i><span>Downloads</span></div>
+        <div class="area-item"><i class="ri-cloud-line"></i><span>Cloud Storage</span></div>
       </div>
     `
   },
@@ -112,149 +65,24 @@ const areaComponents = {
         <p>Recently downloaded files</p>
       </div>
       <div class="file-list">
-        <div class="file-item">
-          <i class="ri-file-zip-line"></i>
-          <div class="file-details">
-            <div class="file-name">project-archive.zip</div>
-            <div class="file-info">Downloaded today, 10.5 MB</div>
-          </div>
-        </div>
-        <div class="file-item">
-          <i class="ri-file-pdf-line"></i>
-          <div class="file-details">
-            <div class="file-name">report-2023.pdf</div>
-            <div class="file-info">Downloaded yesterday, 2.3 MB</div>
-          </div>
-        </div>
-        <div class="file-item">
-          <i class="ri-image-line"></i>
-          <div class="file-details">
-            <div class="file-name">wallpaper.jpg</div>
-            <div class="file-info">Downloaded Jun 20, 4.7 MB</div>
-          </div>
-        </div>
-        <div class="file-item">
-          <i class="ri-file-music-line"></i>
-          <div class="file-details">
-            <div class="file-name">soundtrack.mp3</div>
-            <div class="file-info">Downloaded Jun 18, 8.1 MB</div>
-          </div>
-        </div>
+        <div class="file-item"><i class="ri-file-zip-line"></i><div class="file-details"><div class="file-name">project-archive.zip</div><div class="file-info">Downloaded today, 10.5 MB</div></div></div>
+        <div class="file-item"><i class="ri-file-pdf-line"></i><div class="file-details"><div class="file-name">report-2023.pdf</div><div class="file-info">Downloaded yesterday, 2.3 MB</div></div></div>
+        <div class="file-item"><i class="ri-image-line"></i><div class="file-details"><div class="file-name">wallpaper.jpg</div><div class="file-info">Downloaded Jun 20, 4.7 MB</div></div></div>
+        <div class="file-item"><i class="ri-file-music-line"></i><div class="file-details"><div class="file-name">soundtrack.mp3</div><div class="file-info">Downloaded Jun 18, 8.1 MB</div></div></div>
       </div>
     `
   },
-  code: {
-    title: "Code",
-    icon: "ri-code-s-slash-line",
-    content: `
-      <div class="area-header">
-        <h2>Code Projects</h2>
-        <p>Your development projects</p>
-      </div>
-      <div class="project-list">
-        <div class="project-item">
-          <i class="ri-html5-line"></i>
-          <div class="project-details">
-            <div class="project-name">Website Redesign</div>
-            <div class="project-info">Modified 2 days ago</div>
-          </div>
-        </div>
-        <div class="project-item">
-          <i class="ri-reactjs-line"></i>
-          <div class="project-details">
-            <div class="project-name">React Dashboard</div>
-            <div class="project-info">Modified 5 days ago</div>
-          </div>
-        </div>
-        <div class="project-item">
-          <i class="ri-python-line"></i>
-          <div class="project-details">
-            <div class="project-name">Data Analysis</div>
-            <div class="project-info">Modified 1 week ago</div>
-          </div>
-        </div>
-        <div class="project-item">
-          <i class="ri-android-line"></i>
-          <div class="project-details">
-            <div class="project-name">Mobile App</div>
-            <div class="project-info">Modified 2 weeks ago</div>
-          </div>
-        </div>
-      </div>
-    `
-  },
-  trash: {
-    title: "Trash",
-    icon: "ri-delete-bin-line",
-    content: null
-  },
-  movie: {
-    title: "Movie",
-    icon: "ri-film-line",
-    content: `
-      <div class="area-header">
-        <h2>Movies</h2>
-        <p>Your video collection</p>
-      </div>
-      <div class="movie-grid">
-        <div class="movie-item">
-          <div class="movie-thumbnail" style="background-color: #3a4149;">
-            <i class="ri-movie-line"></i>
-          </div>
-          <div class="movie-name">Interstellar</div>
-        </div>
-        <div class="movie-item">
-          <div class="movie-thumbnail" style="background-color: #3a4149;">
-            <i class="ri-movie-line"></i>
-          </div>
-          <div class="movie-name">The Matrix</div>
-        </div>
-        <div class="movie-item">
-          <div class="movie-thumbnail" style="background-color: #3a4149;">
-            <i class="ri-movie-line"></i>
-          </div>
-          <div class="movie-name">Inception</div>
-        </div>
-        <div class="movie-item">
-          <div class="movie-thumbnail" style="background-color: #3a4149;">
-            <i class="ri-movie-line"></i>
-          </div>
-          <div class="movie-name">Avatar</div>
-        </div>
-        <div class="movie-item">
-          <div class="movie-thumbnail" style="background-color: #3a4149;">
-            <i class="ri-movie-line"></i>
-          </div>
-          <div class="movie-name">Dune</div>
-        </div>
-        <div class="movie-item">
-          <div class="movie-thumbnail" style="background-color: #3a4149;">
-            <i class="ri-movie-line"></i>
-          </div>
-          <div class="movie-name">Blade Runner 2049</div>
-        </div>
-      </div>
-    `
-  }
+  trash: { title: "Trash", icon: "ri-delete-bin-line", content: null },
 };
 
-function switchArea(areaId) {
-  document.querySelectorAll('.sidebar-item').forEach(item => {
-    item.classList.remove('selected');
-  });
-
+export function switchArea(areaId) {
+  document.querySelectorAll('.sidebar-item').forEach(item => item.classList.remove('selected'));
   const sidebarItem = document.querySelector(`.sidebar-item[data-area="${areaId}"]`);
-  if (sidebarItem) {
-    sidebarItem.classList.add('selected');
-  }
+  if (sidebarItem) sidebarItem.classList.add('selected');
 
   const addressBar = document.querySelector('.location-text');
   const areaData = areaComponents[areaId];
-  if (addressBar && areaData) {
-    addressBar.textContent = areaData.title;
-  }
-
-  const mainArea = document.querySelector('.main-area');
+  if (addressBar && areaData) addressBar.textContent = areaData.title;
 
   if (areaId === 'trash') {
     document.getElementById('trash-content').style.display = 'flex';
@@ -266,25 +94,43 @@ function switchArea(areaId) {
   const dynamicContent = document.getElementById('dynamic-content');
   dynamicContent.style.display = 'block';
 
-  if (areaData && areaData.content) {
-    dynamicContent.innerHTML = areaData.content;
-  } else {
-    dynamicContent.innerHTML = `<div class="empty-message">No content available for ${areaId}</div>`;
-  }
+  dynamicContent.innerHTML = areaData && areaData.content 
+    ? areaData.content 
+    : `<div class="empty-message">No content available for ${areaId}</div>`;
 }
 
-document.addEventListener('DOMContentLoaded', () => {
+export function openFileManager() {
+  const openApp = document.getElementById("open-apps");
+  let currentApp = document.createElement("div");
+  currentApp.className = "window";
+  currentApp.innerHTML = `
+    <app-top-bar></app-top-bar>
+    <files-app></files-app>
+  `;
+  openApp.appendChild(currentApp);
+
+  renderFolders();
+
+  const emptyTrashButton = document.querySelector('.action-button');
+  if (emptyTrashButton) {
+    emptyTrashButton.addEventListener('click', (e) => {
+      e.stopPropagation();
+      renderFolders();
+    });
+  }
+
   const sidebarItems = document.querySelectorAll('.sidebar-item');
-  const areas = ['home', 'downloads', 'code', 'trash', 'movie'];
+  const areas = Object.keys(areaComponents);
 
   sidebarItems.forEach((item, index) => {
     if (index < areas.length) {
       item.setAttribute('data-area', areas[index]);
-      item.addEventListener('click', () => {
+      item.addEventListener('click', (e) => {
+        e.stopPropagation();
         switchArea(areas[index]);
       });
     }
   });
 
   switchArea('home');
-});
+}

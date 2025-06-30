@@ -34,8 +34,7 @@ class topBar extends HTMLElement{
         <img src="/assets/icons/applications-system.avif" >
         <img id="files" src="/assets/icons/folder.avif" >
         <img src="/assets/icons/code-oss.avif" >
-        <img id="brave" src="/assets/icons/google-chrome.avif" >  
-        <img src="/assets/icons/discord.avif" >
+        <img id="brave" src="/assets/icons/google-chrome.avif" >
         <img id="music" src="/assets/icons/music.avif" >
       </div>`
     }
@@ -163,130 +162,91 @@ class topBar extends HTMLElement{
 
 
 
-
-class fileManager extends HTMLElement{
-    constructor(){
-      super()
-      this.innerHTML=`<div class="file-manager">
-        <div class="x-bar">
-            <a href="index.html" class="x-button">
-                <i class="ri-close-line"></i>
-            </a>
+class fileManager extends HTMLElement {
+  constructor() {
+    super();
+    this.innerHTML = `
+    <div class="file-manager">
+      <div class="top-bar-files">
+        <div class="left-section">
+          <button class="nav-button back-button"><i class="ri-arrow-left-s-line"></i></button>
+          <button class="nav-button forward-button"><i class="ri-arrow-right-s-line"></i></button>
+          <div class="view-button"><i class="ri-grid-line"></i><i class="ri-arrow-down-s-line dropdown-arrow"></i></div>
         </div>
-        
-        <div class="top-bar-files">
-            <div class="left-section">
-                <button class="nav-button back-button">
-                    <i class="ri-arrow-left-s-line"></i>
-                </button>
-                <button class="nav-button forward-button">
-                    <i class="ri-arrow-right-s-line"></i>
-                </button>
-                <div class="view-button">
-                    <i class="ri-grid-line"></i>
-                    <i class="ri-arrow-down-s-line dropdown-arrow"></i>
-                </div>
-            </div>
+        <div class="address-bar"><div class="location-text">Trash</div></div>
+        <div class="right-section">
+          <button class="action-button"><i class="ri-delete-bin-line"></i>Empty Trash</button>
+          <button class="action-button split-button"><i class="ri-layout-2-line"></i>Split</button>
+          <button class="icon-button search-button"><i class="ri-search-line"></i></button>
+          <button class="icon-button menu-button"><i class="ri-menu-line"></i></button>
+        </div>
+      </div>
 
-            <div class="address-bar">
-                <div class="location-text">Trash</div>
-            </div>
+      <div class="content">
+        <div class="sidebar">
+          <div class="sidebar-header">Places</div>
+          <div class="sidebar-item" data-area="home"><i class="ri-home-line"></i><span>Home</span></div>
+          <div class="sidebar-item" data-area="downloads"><i class="ri-download-line"></i><span>Downloads</span></div>
+          <div class="sidebar-item" data-area="code"><i class="ri-code-s-slash-line"></i><span>Code</span></div>
+          <div class="sidebar-item" data-area="trash"><i class="ri-delete-bin-line"></i><span>Trash</span></div>
+          <div class="sidebar-item" data-area="movie"><i class="ri-film-line"></i><span>Movie</span></div>
 
-            <div class="right-section">
-                <button class="action-button">
-                    <i class="ri-delete-bin-line"></i>
-                    Empty Trash
-                </button>
-                <button class="action-button split-button">
-                    <i class="ri-layout-2-line"></i>
-                    Split
-                </button>
-                <button class="icon-button search-button">
-                    <i class="ri-search-line"></i>
-                </button>
-                <button class="icon-button menu-button">
-                    <i class="ri-menu-line"></i>
-                </button>
-            </div>
+          <div class="sidebar-header">Remote</div>
+          <div class="sidebar-item" data-area="network"><i class="ri-wifi-line"></i><span>Network</span></div>
+
+          <div class="sidebar-header">Recent</div>
+          <div class="sidebar-item" data-area="recent-files"><i class="ri-file-list-line"></i><span>Recent Files</span></div>
+          <div class="sidebar-item" data-area="recent-locations"><i class="ri-map-pin-line"></i><span>Recent Locations</span></div>
+
+          <div class="sidebar-header">Devices</div>
+          <div class="sidebar-item" data-area="internal-drive"><i class="ri-hard-drive-line"></i><span>238.0 GiB Internal Drive</span></div>
         </div>
 
-        <div class="content">
-            <div class="sidebar">
-                <div class="sidebar-header">Places</div>
-                <div class="sidebar-item">
-                    <i class="ri-home-line"></i>
-                    <span>Home</span>
-                </div>
-                <div class="sidebar-item">
-                    <i class="ri-download-line"></i>
-                    <span>Downloads</span>
-                </div>
-                <div class="sidebar-item">
-                    <i class="ri-code-s-slash-line"></i>
-                    <span>Code</span>
-                </div>
-                <div class="sidebar-item ">
-                    <i class="ri-delete-bin-line"></i>
-                    <span>Trash</span>
-                </div>
-                <div class="sidebar-item">
-                    <i class="ri-film-line"></i>
-                    <span>Movie</span>
-                </div>
-
-                <div class="sidebar-header">Remote</div>
-                <div class="sidebar-item">
-                    <i class="ri-wifi-line"></i>
-                    <span>Network</span>
-                </div>
-
-                <div class="sidebar-header">Recent</div>
-                <div class="sidebar-item">
-                    <i class="ri-file-list-line"></i>
-                    <span>Recent Files</span>
-                </div>
-                <div class="sidebar-item">
-                    <i class="ri-map-pin-line"></i>
-                    <span>Recent Locations</span>
-                </div>
-
-                <div class="sidebar-header">Devices</div>
-                <div class="sidebar-item">
-                    <i class="ri-hard-drive-line"></i>
-                    <span>238.0 GiB Internal Drive</span>
-                </div>
+        <div class="main-area">
+          <div id="trash-content">
+            <div class="table-header">
+              <div class="column name-column">Name</div>
+              <div class="column path-column">Path</div>
+              <div class="column deletion-time-column">Deletion Time</div>
             </div>
+            <div id="folder-container"></div>
+            <div class="empty-message" id="empty-message">Trash is empty</div>
+            <div class="status-bar"><span id="status-count">0 folders, 0 files</span></div>
+          </div>
 
-            <div class="main-area">
-                <div id="trash-content">
-                    <div class="table-header">
-                        <div class="column name-column">Name</div>
-                        <div class="column path-column">Path</div>
-                        <div class="column deletion-time-column">Deletion Time</div>
-                    </div>
-                    
-                    <div id="folder-container">
-                    </div>
-                    
-                    <div class="empty-message" id="empty-message">Trash is empty</div>
-                    <div class="status-bar">
-                        <span id="status-count">0 folders, 0 files</span>
-                    </div>
-                </div>
-
-                <div id="dynamic-content">
-                </div>
-            </div>
+          <div id="dynamic-content" style="display:none;"></div>
         </div>
-</div>`
-    }
+      </div>
+    </div>`;
   }
+}
   
+class searchApp extends HTMLElement{
+  constructor(){
+    super()
+    this.innerHTML=`
+      <div id="google"> 
+        <div class="google-main"><div class="gcse-search"></div></div>
+      </div> `
+  }
+}
 
-  customElements.define("files-app",fileManager);
-  customElements.define("color-picker",colorPicker);
-  customElements.define("weather-card",weatherCard);
-  customElements.define("top-bar",topBar);
-  customElements.define("bottom-bar",bottomBar);
-  customElements.define("app-menu",appMenu);
-  customElements.define("log-out",logOut);
+class appTopBar extends HTMLElement{
+  constructor(){
+    super()
+    this.innerHTML=`    <div class="app-bar">
+      <img id="app-bar-resize" src="/assets/icons/app-bar-re.svg">
+      <img id="app-bar-close" src="/assets/icons/app-bar-cl.svg">
+    </div> `
+  }
+}
+
+customElements.define("app-top-bar",appTopBar);
+customElements.define("search-app",searchApp);
+customElements.define("files-app",fileManager);
+customElements.define("color-picker",colorPicker);
+customElements.define("weather-card",weatherCard);
+customElements.define("top-bar",topBar);
+customElements.define("bottom-bar",bottomBar);
+customElements.define("app-menu",appMenu);
+customElements.define("log-out",logOut);

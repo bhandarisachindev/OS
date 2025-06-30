@@ -1,6 +1,5 @@
 import { favData, catData } from "./data.js";
 import { 
-  topBarHide, 
   updateTimeAndDate, 
   bgChange, 
   getUserCity, 
@@ -10,7 +9,7 @@ import {
   toggleWeather, 
   launchApp
 } from "./functions.js";
-
+import { openFileManager } from './files.js';
 import { colourPicker  } from "./color.js";
 
 const bottomBar = document.querySelector(".bottom-bar");
@@ -27,29 +26,21 @@ const logoutDiv = document.querySelector(".logout");
 const logoutClose = document.querySelector(".ri-close-circle-fill");
 const upcominWeather = document.getElementById("upcoming-weather");
 const wToogle = document.getElementById("weather-toggle");
-const openFiles = document.getElementById("files");
-const music = document.getElementById("music");
-const search = document.getElementById("brave");
-const notHome = !(window.location.pathname === "/" || window.location.pathname.endsWith("index.html"));
-const path = window.location.pathname;
-
-
-const tabs = {
-  "files": openFiles,
-  "music": music,
-  "search": search,
-};
-
+const files = document.getElementById("files");
+const openApp = document.getElementById("open-apps");
 
 let logoutState = false;
 let calendarState = false, otherData = false, appMenuStatus = false;
 let wState = false, colorState = false,notesState=false;
 let calendar, city, weatherData, wIcon;
 
-const isIndexPage = path === '/' || path.endsWith('index.html');
-const isFilesPage = path.endsWith('files.html');
-const isMusicPage = path.endsWith('music.html');
-const isSearch = path.endsWith('search.html');
+
+
+
+
+
+
+
 
 
 (function() {
@@ -70,86 +61,6 @@ const isSearch = path.endsWith('search.html');
 
 
 
-if (isFilesPage || isMusicPage || isSearch) {
-  bottomBar.style.backgroundColor = "#161A1C";
-  bottomBar.style.padding = "38px";
-
-  bottomBar.style.borderBottom = isMusicPage ? "20px solid rgba(0, 0, 0, 0)" : "20px solid #161A1C";
-  bottomBar.style.borderTop = isMusicPage ? "20px solid rgba(0, 0, 0, 0)" : "20px solid #161A1C";
-
-  bottomBar.style.bottom = "-95px";
-  topBar.style.padding = "0 12px";
-  topBar.style.borderTop = "10px solid #161A1C";
-  topBar.style.borderBottom = "20px solid #161A1C";
-  topBar.style.top = "-30px";
-  appMenu.style.bottom = "75px";
-
-
-  for (const key in tabs) {
-    if (path.endsWith(key)) {
-      tabs[key].style.borderColor = "lightblue";
-    }
-  }
-}
-
-if (!isIndexPage) {
-  topBar.addEventListener('mouseenter', () => {
-    gsap.to(topBar, { top: 0, duration: 0.4, ease: "power2.out" });
-  });
-
-  topBar.addEventListener('mouseleave', () => {
-    if (!calendarState && !otherData && !wState && !colorState && !notesState) {
-      topBarHide(topBar);
-    }
-  });
-
-  bottomBar.addEventListener('mouseenter', () => {
-    gsap.to(bottomBar, {
-      bottom: -20,
-      duration: 0.4,
-      boxSizing: "content-box",
-      height: 55,
-      paddingLeft: 12,
-      paddingRight: 12,
-      borderTopWidth: 0,
-      borderBottomWidth: 40,
-      paddingTop: 0,
-      paddingBottom: 0,
-      ease: "power2.out",
-      backgroundColor: "#1D1E25"
-    });
-  });
-
-  bottomBar.addEventListener('mouseleave', () => {
-    if (!appMenuStatus) {
-      gsap.to(bottomBar, {
-        bottom: -80,
-        delay: 0.4,
-        borderTopWidth: 20,
-      borderBottomWidth: 20,
-        duration: 0.4,
-        ease: "power2.out",
-        backgroundColor: "#1D1E25"
-      });
-    }
-  });
-}
-
-search.addEventListener("click",e=>{
-  e.stopPropagation();
-  window.location.href = "search.html";
-})
-
-openFiles.addEventListener("click", (e) => {
-  e.stopPropagation();
-  window.location.href = "files.html";
-});
-
-music.addEventListener("click", (e) => {
-  e.stopPropagation();
-  window.location.href = "music.html";
-});
-
 logout.addEventListener("click", (e) => {
   e.stopPropagation();
   logoutDiv.style.display = "flex";
@@ -166,9 +77,9 @@ document.addEventListener("contextmenu", function (e) {
   e.preventDefault();
   bgChange();
 });
-
+  
 document.addEventListener("DOMContentLoaded", async function () {
-  colourPicker();
+colourPicker();
 
   city = await getUserCity();
   if (document.getElementById("weather-icon")) {
@@ -211,6 +122,7 @@ wToogle.addEventListener("click", (e) => {
 });
 
 appLaunch.addEventListener("click", (e) => {
+  e.stopPropagation();
   appMenuStatus = launchApp(e, appMenuStatus, appMenu);
 });
 
@@ -227,16 +139,33 @@ window.addEventListener("click", (e) => {
   calendarState = viewCalender(e, calendarState, calendarEl, calendar);
   otherData = otherBar(e, otherData, other);
   
-  if(notHome){
-    topBarHide(topBar); 
-  }
 });
 
 other.addEventListener("click", (e) => {
   otherData = otherBar(e, otherData, other);
 });
 
+
+
 calendarEl.addEventListener("click", e => e.stopPropagation());
-
-
 document.querySelector(".weather-card")?.addEventListener("click", e => e.stopPropagation());
+
+appMenu.addEventListener("click",(e)=>{
+  e.stopPropagation();
+})
+
+files.addEventListener("click",(e)=>{
+  e.stopPropagation();
+  let currentApp= document.createElement("div");
+  currentApp.classList.add="window"
+  currentApp.innerHTML=`
+    <app-top-bar></app-top-bar>
+    <files-app></files-app>
+  `
+  openApp.appendChild(currentApp);
+})
+
+files.addEventListener("click", (e) => {
+  e.stopPropagation();
+  openFileManager();
+});

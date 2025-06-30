@@ -1,8 +1,5 @@
 import { iconMap } from "./data.js";
 
-export function topBarHide(topBar) {
-  gsap.to(topBar, { top: -30, duration: 0.4, ease: "power2.in" });
-}
 
 export function updateTimeAndDate() {
   const now = new Date();
