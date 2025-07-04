@@ -21,48 +21,23 @@ body {
   z-index: 1;
 }
 
-#open-apps{
-  height: 500px;
+
+
+.apps-div{
+  background-color: #1E1E1E;
+  padding: 1px;
+  overflow: hidden;
+  position: absolute;
+  min-height: 350px;
+  min-width: 500px;
+  height: 350px;
   width: 500px;
 }
 
-/* #open-app .window{
-  
-} */
-
-.gcse-search{
-  margin-top: 100px;
+.code-toggle{
+  display: none;
 }
 
-#google{
-  height: 100vh;
-  width: 100vw; 
-  background-color: #161A1C;
-  overflow-x: hidden;
-}
-
-.gsc-control-cse{
-  background-color: #161A1C;
-}
-
-.google-main{
-  margin-top: 50px;
-}
-
-.app-bar{
-  height: 40px;
-  width: 100%;
-  background-color: #15181B;
-  display: flex;
-  align-items: center;
-  justify-content: end;
-  padding: 5px 16px;
-  gap: 10px;
-}
-
-.app-bar img{
-  height: 100%;
-  &:hover{
-    scale: 1.1;
-  }
+.files-toggle{
+  display: none;
 }

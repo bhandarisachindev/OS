@@ -147,12 +147,12 @@ return;
 console.error('EyeDropper API error:', error);
 if (error.name !== 'AbortError') {
     instructions.textContent = 'EyeDropper API error. Using fallback method.';
-    console.log('EyeDropper API error. Using custom method for color picking.');
+    console.log('EyeDropper API error. Using a custom color-picking method; colors may not be accurate.');
 }
 }
 } else {
 console.log("EyeDropper API not available. Using custom method for color picking - colors may not be accurate.");
-instructions.textContent = 'Using custom color picker (EyeDropper API not available)';
+instructions.textContent = 'Using  custom color-picking method; colors may not be accurate. (EyeDropper API not available)';
 }
 }
 

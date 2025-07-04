@@ -10,7 +10,7 @@
   left: 0;
   padding:14px;
   display: none;
-  z-index: 100;
+  z-index: 900;
 }
 
 #weather-city{
@@ -84,7 +84,7 @@
   overflow: hidden;
   scrollbar-width: none;
   display: none;
-  z-index: 100;
+  z-index: 900;
 }
 
 #calendar::-webkit-scrollbar {
@@ -173,7 +173,7 @@
   line-height: 1.2;
   background-color: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(4px);
-  z-index: 100;
+  z-index: 900;
 }
 
 #date {
@@ -181,10 +181,10 @@
 }
 
 
-.top-bar {
+.top-bar{
   width: 100%;
   height: 40px;
-  z-index: 100;
+  z-index: 900;
   background-color: #15181B;
   position: absolute;
   top: 0;
@@ -194,6 +194,8 @@
   align-items: center;
   padding: 0 12px;
   cursor: pointer;
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 1s;
+  border-bottom: 10px solid rgba(255, 255, 255,0);
 }
 
 .navs {
@@ -223,7 +225,9 @@
   gap: 8px;
   padding: 0 32px;
   border-radius: 8px;
-  z-index: 100;
+  z-index: 900;
+  box-sizing: content-box; 
+  transition: cubic-bezier(0.175, 0.885, 0.32, 1.275) 2s;
 }
 
 .bottom-bar img {
@@ -249,7 +253,7 @@
   flex-direction: column;
   display: none;
   overflow: hidden;
-  z-index: 100;
+  z-index: 900;
 }
 
 #app-top{
@@ -270,7 +274,7 @@
  height: 24px;
  top: 12px;
  width: 320px;
- z-index: 100;
+ z-index: 800;
  padding: 0 5px 0;
 }
 #app-top div input{
@@ -307,28 +311,38 @@
 
 
 
-
-#app-mid::-webkit-scrollbar ,#app-cat::-webkit-scrollbar,.notes-list::-webkit-scrollbar  {
-  width: 4px;
+#clip-board::-webkit-scrollbar,
+#app-mid::-webkit-scrollbar,
+#app-cat::-webkit-scrollbar,
+#wifi::-webkit-scrollbar {
+  width: 6px;
 }
 
-
-#app-mid::-webkit-scrollbar-track,#app-cat::-webkit-scrollbar-track,.notes-list::-webkit-scrollbar-track {
-  background: #85686c;
-  border-radius: 10px;
+#clip-board::-webkit-scrollbar-track,
+#app-mid::-webkit-scrollbar-track,
+#app-cat::-webkit-scrollbar-track,
+#wifi::-webkit-scrollbar-track {
+  background: #2e2e2e;
+  border-radius: 8px;
 }
 
-
-#app-mid::-webkit-scrollbar-thumb, #app-cat::-webkit-scrollbar-thumb,.notes-list::-webkit-scrollbar-thumb{
+#clip-board::-webkit-scrollbar-thumb,
+#app-mid::-webkit-scrollbar-thumb,
+#app-cat::-webkit-scrollbar-thumb,
+#wifi::-webkit-scrollbar-thumb {
   background-color: #85686c;
-  border-radius: 10px;
-  border: 2px solid ;
+  border-radius: 8px;
+  border: 1px solid transparent;
 }
 
-
-#app-mid::-webkit-scrollbar-thumb:hover ,#app-cat::-webkit-scrollbar-thumb:hover,.notes-list::-webkit-scrollbar-thumb:hover{
+#clip-board::-webkit-scrollbar-thumb:hover,
+#app-mid::-webkit-scrollbar-thumb:hover,
+#app-cat::-webkit-scrollbar-thumb:hover,
+#wifi::-webkit-scrollbar-thumb:hover {
   background-color: #555;
+  transition: background-color 0.2s;
 }
+
 
 #app-fav{
   margin-top: 20px;
@@ -343,7 +357,7 @@
 
 .card{
   height: 110px;
-  width: 95px;
+  width: 90px;
   display: flex;
   align-items: center;
   justify-content: start;
@@ -458,7 +472,7 @@ a{
   width: 100vw;
   height: 100vh;
   background-color: black;
-  z-index: 1000;
+  z-index: 999;
   position: fixed;
   display: none ;
   align-items: center;
@@ -497,8 +511,6 @@ a{
 }
 
 
-
-
 .topbar {
   height: 30px;
   width: 100%;
@@ -510,25 +522,25 @@ a{
   position: fixed;
   top: 0;
   left: 0;
-  z-index: 100;
+  z-index: 900;
 }
 
 .toggle-btn {
-    width: 24px;
-    height: 24px;
-    border-radius: 50%;
-    background-color: #e63946;
-    border: none;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s;
-    outline: none;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
-    position: relative;
-    z-index: 201;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #e63946;
+  border: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  outline: none;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 20;
 }
 
 .toggle-btn:hover {
@@ -557,7 +569,7 @@ a{
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
   padding: 15px;
   display: none;
-  z-index: 200;
+  z-index: 20;
 }
 
 .picker-container.visible {
@@ -655,23 +667,23 @@ a{
 }
 
 .delete-btn {
-    position: absolute;
-    top: 3px;
-    right: 3px;
-    width: 16px;
-    height: 16px;
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    font-size: 14px;
-    opacity: 0;
-    transition: opacity 0.2s, background-color 0.2s;
-    z-index: 100;
+  position: absolute;
+  top: 3px;
+  right: 3px;
+  width: 16px;
+  height: 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 14px;
+  opacity: 0;
+  transition: opacity 0.2s, background-color 0.2s;
+  z-index: 10;
 }
 
 .color-swatch:hover .delete-btn {
@@ -718,3 +730,192 @@ a{
     font-size: 14px;
     line-height: 1.5;
 } 
+
+
+
+#clip-board{
+  height: 350px;
+  width: 300px;
+  background-color: rgba(22, 19, 24, 0.7);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: absolute;
+  top: 40px;
+  right: 10%;
+  padding: 10px;
+  flex-direction: column;
+  gap: 10px;
+  display: none;
+  border-radius: 0 0 6px 6px;
+  z-index: 900;
+}
+
+#clip-board p{
+  width: 100%;
+  padding: 5px;
+  border: 1px solid rgba(105, 16, 163, 0);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  &:hover{
+    border: 1px solid rgba(105, 16, 163, 0.7);
+    background-color: rgba(105, 16, 163, 0.2);
+  }
+}
+
+
+.app-bar{
+  height: 40px;
+  width: 100%;
+  background-color: #15181B;
+  display: flex;
+  align-items: center;
+  justify-content: end;
+  padding: 5px 16px;
+  gap: 10px;
+}
+
+.app-bar img{
+  height: 100%;
+  &:hover{
+    scale: 1.1;
+  }
+}
+
+.top-bar-ele{
+  position: absolute;
+  width: 300px;
+  background-color: rgba(22, 19, 24, 0.7);
+  height: 200px;
+  top: 40px;
+  right: 6%;
+  border-radius: 0 0 6px 6px;
+}
+
+#volume{
+  height: 100px;
+  padding: 24px;
+  display: none;
+  z-index: 900;
+}
+#volume span{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.8rem;
+}
+
+.top-bar-ele input{
+  width: 180px;
+}
+#volume p{
+  font-size: 1rem;
+}
+
+#bright{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 150px;
+  gap: 16px;
+  display: none;
+  z-index: 900;
+}
+
+#bright span{
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#top-brightness{
+  height: 100%;
+  width: 100%;
+  background-color: black;
+  z-index: 999;
+  display: flex;
+  opacity: 0;
+  pointer-events: none;
+}
+
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;    
+  height: 26px;      
+}
+
+.switch input {
+  opacity: 0;       
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;      
+  border-radius: 34px;        
+  transition: background-color 0.4s;
+}
+
+.slider::before {
+  position: absolute;
+  content: "";
+  height: 22px;               
+  width: 22px;
+  left: 2px;                  
+  bottom: 2px;
+  background-color: white;    
+  border-radius: 50%;
+  transition: transform 0.4s;   
+}
+
+
+input:checked + .slider {
+  background-color: #2196F3;  
+}
+
+input:checked + .slider::before {
+  transform: translateX(24px);
+}
+
+
+#wifi{
+  overflow-x: hidden;
+  overflow-y: scroll;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  display: none;
+  z-index: 900;
+}
+
+#wifi div{
+  width: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(105, 16, 163, 0);
+  padding: 5px;
+  &:hover{
+    background-color: rgba(105, 16, 163, 0.2);
+    border: 1px solid rgba(105, 16, 163, 0.3);
+  }
+}
+
+.app-bar-close,.app-bar-resize{
+  cursor: pointer;
+}
+.file-explorer,.editor{
+  cursor: auto;
+}

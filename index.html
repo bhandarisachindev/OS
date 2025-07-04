@@ -6,32 +6,42 @@
     <link rel="icon" href="assets/icons/zwlogo.avif">
     <title>ZWeB OS</title>
 
-    <link rel="stylesheet" href="style/files.css" />
+
     <link rel="stylesheet" href="style/style.css">
     <link rel="stylesheet" href="style/component.css">
+    <link rel="stylesheet" href="style/files.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/vs2015.min.css">
     <link href="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style/codeeditor.css">
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
 
   </head>
   <body>
-
-    <div id="calendar"></div>
+    <div id="top-brightness"></div>
     <top-bar></top-bar>
     <bottom-bar></bottom-bar>
     <app-menu></app-menu> 
     <log-out></log-out>
     <weather-card></weather-card>
     <color-picker></color-picker>
-    
-    <div id="open-apps">
-      
+    <top-bar-uti></top-bar-uti>
+    <div class="apps-div code-toggle">
+      <app-top-bar></app-top-bar>
+      <code-editor></code-editor>
     </div>
-
-  <script async src="https://cse.google.com/cse.js?cx=56611e7a4aa08499a"></script>   
-  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-  <script type="module" src="js/components.js"></script>>
-  <script type="module" src="js/app.js"></script>
+    <div class="apps-div files-toggle">
+      <app-top-bar></app-top-bar>
+      <files-app></files-app>
+    </div>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+    <script async src="https://cse.google.com/cse.js?cx=56611e7a4aa08499a"></script>   
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+    <script type="module" src="js/components.js"></script>  
+    <script type="module" src="js/program.js"></script>
+    <script type="module" src="js/files.js"></script>
+    <script type="module" src="js/app.js"></script>
 
   </body>
 </html>

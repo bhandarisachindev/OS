@@ -105,12 +105,6 @@ export const fetchWeather = async (city, weatherData, wIcon, upcominWeather) => 
   return { weatherData, wIcon };
 };
 
-export function otherBar(e, otherData, other) {
-  e.stopPropagation();
-  otherData = !otherData;
-  other.style.rotate = otherData ? "180deg" : "0deg";
-  return otherData;
-}
 
 export function viewCalender(e, calendarState, calendarEl, calendar) {
   e.stopPropagation();
@@ -136,3 +130,85 @@ export function launchApp(e, appMenuStatus, appMenu) {
 }
 
 
+export function makeDraggableResizable(element) {
+  let isDraggable = true;
+  let isResizeable = true;
+  const aspectRatio = 9 / 16;
+
+  // Cursor and endEvent detection on mousemove
+  element.addEventListener('mousemove', (e) => {
+    if (e.target.closest('.endEvent')) {
+      element.style.cursor = 'default';
+      return;
+    }
+
+    const rect = element.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+
+    if (isResizeable && offsetX > rect.width - 16 && offsetY > rect.height - 16) {
+      element.style.cursor = 'nwse-resize';
+    } else if (isDraggable) {
+      element.style.cursor = 'move';
+    } else {
+      element.style.cursor = 'default';
+    }
+  });
+
+  element.addEventListener('mouseleave', () => {
+    element.style.cursor = 'default';
+  });
+
+  let isDragging = false;
+  let isResizing = false;
+  let startX, startY, startWidth, startLeft, startTop;
+
+  element.addEventListener('mousedown', (e) => {
+    if (e.target.closest('.endEvent')) return;
+
+    const rect = element.getBoundingClientRect();
+    const offsetX = e.clientX - rect.left;
+    const offsetY = e.clientY - rect.top;
+
+    if (isResizeable && offsetX > rect.width - 16 && offsetY > rect.height - 16) {
+      isResizing = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startWidth = rect.width;
+    } else if (isDraggable) {
+      isDragging = true;
+      startX = e.clientX;
+      startY = e.clientY;
+      startLeft = rect.left;
+      startTop = rect.top;
+    }
+    e.preventDefault();
+  });
+
+  document.addEventListener('mousemove', (e) => {
+    if (isDragging) {
+      const dx = e.clientX - startX;
+      const dy = e.clientY - startY;
+      element.style.left = `${startLeft + dx}px`;
+      element.style.top = `${startTop + dy}px`;
+    } else if (isResizing) {
+      const dx = e.clientX - startX;
+      let newWidth = Math.max(50, startWidth + dx);
+      let newHeight = newWidth * aspectRatio;
+      element.style.width = `${newWidth}px`;
+      element.style.height = `${newHeight}px`;
+    }
+  });
+
+  document.addEventListener('mouseup', () => {
+    isDragging = false;
+    isResizing = false;
+  });
+
+  return {
+    setEnabled(value) {
+      isDraggable = value;
+      isResizeable = value;
+    }
+  };
+}
