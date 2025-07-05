@@ -1,4 +1,4 @@
-import { favData, catData } from "./data.js";
+import { favData, catData, filesData } from "./data.js";
 import {
   updateTimeAndDate,
   bgChange,
@@ -10,6 +10,7 @@ import {
   makeDraggableResizable,
 } from "./functions.js";
 import { colourPicker } from "./color.js";
+
 
 const bottomBar = document.querySelector(".bottom-bar");
 const topBar = document.querySelector(".top-bar");
@@ -37,9 +38,18 @@ const togglBright = document.getElementById("toggle-brightness");
 const toggleWifi = document.getElementById("toggle-wifi");
 const filesApp = document.querySelector(".files-toggle");
 const codeApp = document.querySelector(".code-toggle");
+const createInput = document.getElementById("create-input");
+const createFolder = document.getElementById("create-folder");
+const createText = document.getElementById("create-text");
+const createHtml = document.getElementById("create-html");
+const createButton = document.getElementById("create-button");
+
+
 
 let filesResize = makeDraggableResizable(filesApp);
 let codeResize = makeDraggableResizable(codeApp);
+
+let zFlie=101,zCode=101;
 
 let logoutState = false,
   calendarState = false,
@@ -51,8 +61,9 @@ let logoutState = false,
   volumeBarStatus = false,
   brightnessBarStatus = false,
   nightLight = false,
-  wifiStatus = false;
-
+  wifiStatus = false,
+  browserStatus=false,
+  createState=false;
 let calendar, city, weatherData, wIcon;
 let fileFS = false,
   codeFS = false;
@@ -98,7 +109,13 @@ logoutClose.addEventListener("click", (e) => {
 
 document.addEventListener("contextmenu", function (e) {
   e.preventDefault();
-  bgChange();
+  handleActiveStates(e);  
+ if(!codeFS && !fileFS && !createState){
+   const ele= document.querySelector(".rightClick");
+    ele.style.display="flex";
+    ele.style.top=`${e.clientY}px`;
+    ele.style.left=`${e.clientX}px`;
+ }
 });
 
 document.addEventListener("DOMContentLoaded", async function () {
@@ -157,6 +174,8 @@ wToogle.addEventListener("click", (e) => {
 
 appLaunch.addEventListener("click", (e) => {
   e.stopPropagation();
+  const ele= document.querySelector(".rightClick");
+  ele.style.display="none";
   appMenuStatus = launchApp(e, appMenuStatus, appMenu);
 });
 
@@ -165,21 +184,7 @@ document.getElementById("toggle-notes").addEventListener("click", (e) => {
   clipBoardToggle(e);
 });
 
-window.addEventListener("click", (e) => {
-  logoutState = true;
-  calendarState = true;
-  appMenuStatus = true;
-  wState = true;
-  colorState = true;
-  notesState = true;
-
-  // Close all toggles
-  closeAllTogglesExcept("");
-
-  wState = toggleWeather(e, wState);
-  appMenuStatus = launchApp(e, appMenuStatus, appMenu);
-  calendarState = viewCalender(e, calendarState, calendarEl, calendar);
-});
+window.addEventListener("click", e =>handleActiveStates(e));
 
 calendarEl.addEventListener("click", (e) => e.stopPropagation());
 document
@@ -385,35 +390,13 @@ function stopTopBarUtiEvents(){
   }
 }
 
-files.addEventListener("click", (e) => {
-  filesApp.style.display = "block";
-  filesApp.style.height = "100%";
-  filesApp.style.width = "100%";
-  filesApp.style.top="0";
-  filesApp.style.left="0";
-  fileFS = true;
-  filesResize.setEnabled(false);
-  topBottom();
-  appMenuStatus=true;
-  appMenuStatus = launchApp(e, appMenuStatus, appMenu);
-});
 
-code.addEventListener("click", (e) => {
-  codeApp.style.display = "block";
-  codeApp.style.height = "100%";
-  codeApp.style.width = "100%";
-  codeApp.style.top="0";
-  codeApp.style.left="0";
-  codeResize.setEnabled(false);
-  codeFS=true;
-  topBottom();
-  appMenuStatus=true;
-  appMenuStatus = launchApp(e, appMenuStatus, appMenu);
-});
 
 
 function topBottom() {
-  if (fileFS || codeFS) {
+  const ele= document.querySelector(".rightClick");
+  ele.style.display="none";
+  if (fileFS || codeFS){
     topBar.style.top = "-30px";
     bottomBar.style.bottom = "-65px";
     bottomBar.style.borderBottom = "20px solid #1E1E1E";
@@ -465,8 +448,8 @@ document.querySelectorAll(".app-bar-close").forEach((ele) => {
     if (appsDiv) {
       appsDiv.style.display = "none";
     }
-    if (fileFS) fileFS = !fileFS;
-    if (codeFS) codeFS = !codeFS;
+    if (appsDiv.classList.contains("files-toggle")) fileFS = !fileFS;
+    if (appsDiv.classList.contains("code-toggle")) codeFS = !codeFS;
     topBottom();
   });
 });
@@ -476,19 +459,243 @@ document.querySelectorAll(".app-bar-resize").forEach((ele) => {
     e.stopPropagation();
     const appsDiv = e.currentTarget.parentElement.parentElement.parentElement;
     if(appsDiv.classList.contains("files-toggle")){
-      filesApp.style.height = "350px";
-      filesApp.style.width = "700px";
-      filesResize.setEnabled(true);
-      fileFS=false;
+      if(fileFS){
+        filesApp.style.height = "350px";
+        filesApp.style.width = "700px";
+        filesResize.setEnabled(true);
+        fileFS=false;
+      }else{
+        filesApp.style.height = "100%";
+        filesApp.style.width = "100%";
+        filesApp.style.top="0";
+        filesApp.style.left="0";
+        filesResize.setEnabled(false);
+        fileFS=true;
+      }
       
     }else if(appsDiv.classList.contains("code-toggle")){
-      codeApp.style.height = "350px";
-      codeApp.style.width = "700px";
-      codeApp.style.top="200px";
-      codeApp.style.left="100px";
-      codeResize.setEnabled(true);
-      codeFS=false;
+      if(codeFS){
+        codeApp.style.height = "350px";
+        codeApp.style.width = "700px";
+        codeApp.style.top="200px";
+        codeApp.style.left="100px";
+        codeResize.setEnabled(true);
+        codeFS=false;
+      }else{
+        codeApp.style.height = "100%";
+        codeApp.style.width = "100%";
+        codeApp.style.top="0";
+        codeApp.style.left="0";
+        codeResize.setEnabled(false);
+        codeFS=true;
+      }
     }
     topBottom();
   });
+});
+
+
+
+files.addEventListener("click", (e) => {
+  filesApp.style.display = "block";
+  filesApp.style.height = "100%";
+  filesApp.style.width = "100%";
+  filesApp.style.top="0";
+  filesApp.style.left="0";
+  fileFS = true;
+  filesApp.style.zIndex=2;
+  fileZIndex();
+  filesResize.setEnabled(false);
+  topBottom();
+  appMenuStatus=true;
+  appMenuStatus = launchApp(e, appMenuStatus, appMenu);
+});
+
+code.addEventListener("click", (e) => {
+  codeApp.style.display = "block";
+  codeApp.style.height = "100%";
+  codeApp.style.width = "100%";
+  codeApp.style.top="0";
+  codeApp.style.left="0";
+  codeResize.setEnabled(false);
+  codeFS=true;
+  codeApp.style.zIndex=1;
+  codeZIndex();
+  topBottom();
+  appMenuStatus=true;
+  appMenuStatus = launchApp(e, appMenuStatus, appMenu);
+
+});
+
+
+
+codeApp.addEventListener("click",(e)=>{
+  codeZIndex();
+  handleActiveStates(e) 
+});
+
+filesApp.addEventListener("click",(e)=>{
+  fileZIndex();
+  handleActiveStates(e);
+});
+
+function getZIndex(){
+  zCode=codeApp.style.zIndex;
+  zFlie=filesApp.style.zIndex;
+}
+
+function fileZIndex(){
+  getZIndex();
+  if(zFlie<zCode){
+    filesApp.style.zIndex=Number(zCode)+1;
+    codeApp.style.zIndex=Number(zFlie)-1;
+    console.log("file",filesApp.style.zIndex);
+    getZIndex()
+  }
+};
+
+function codeZIndex(){
+  getZIndex();
+  if(zFlie>zCode){
+    filesApp.style.zIndex;
+    filesApp.style.zIndex=Number(zCode)-1;
+    codeApp.style.zIndex=Number(zFlie)+1;
+    console.log("code",codeApp.style.zIndex);
+    getZIndex();
+  }
+}
+
+
+function handleActiveStates(e) {
+    const ele= document.querySelector(".rightClick");
+    ele.style.display="none";
+  if (
+    logoutState ||
+    calendarState ||
+    wState ||
+    colorState ||
+    notesState ||
+    clipState ||
+    appMenuStatus ||
+    volumeBarStatus ||
+    brightnessBarStatus ||
+    wifiStatus ||
+    browserStatus ||
+    createState
+  ) {
+    browserStatus=true;
+    logoutState = true;
+    calendarState = true;
+    appMenuStatus = true;
+    wState = true;
+    appMenuStatus=true;
+    colorState = true;
+    notesState = true;
+    createState=true;
+
+    closeAllTogglesExcept("");
+    wState = toggleWeather(e, wState);
+    appMenuStatus = launchApp(e, appMenuStatus, appMenu);
+    calendarState = viewCalender(e, calendarState, calendarEl, calendar);
+    closeAllTogglesExcept("");
+    topBottom();
+    document.getElementById("browser").style.display="none";
+
+    createState=false;
+    browserStatus=false;
+  }
+}
+
+document.getElementById("Wallpaper-change").addEventListener("click",bgChange);
+
+
+let folderCount=0,textCount=0,htmlCount=0;
+
+
+createHtml.addEventListener("click",e=>{
+  createInput.style.display="flex";
+  const input = document.getElementById("title-input");
+  input.focus();
+  document.getElementById("radio-html").checked= true;
+  createState=true;
+});
+
+createText.addEventListener("click",e=>{
+  createInput.style.display="flex";
+  const input = document.getElementById("title-input");
+  input.focus();
+  document.getElementById("radio-text").checked= true;
+  createState=true;
+});
+
+createFolder.addEventListener("click",e=>{
+  createInput.style.display="flex";
+  const input = document.getElementById("title-input");
+  input.focus();
+  document.getElementById("radio-folder").checked= true;
+  createState=true;
+});
+
+
+document.getElementById("cancel-creation").addEventListener("click",(e)=>{
+  createInput.style.display="none";
+  createState=false;
+});
+
+createButton.addEventListener("click", createDesktopItem);
+
+document.getElementById("title-input").addEventListener("keydown", (e) => {
+  if (e.key === "Enter") {
+    createDesktopItem();
+  }
+});
+
+function createDesktopItem() {
+  let title = document.getElementById("title-input").value;
+  if (title.trim() === "") return alert("Title is required");
+
+  const checkedRadio = document.querySelector('input[name="type"]:checked').value;
+  let logo, suffix, type, src;
+
+  if (checkedRadio === "folder") {
+    logo = "ri-folder-line"; suffix = ""; type = "folder";
+    src = "assets/icons/folder.avif";
+  }
+  if (checkedRadio === "text") {
+    logo = "ri-file-text-line"; suffix = ".txt"; type = "file";
+    src = "assets/icons/text.svg";
+  }
+  if (checkedRadio === "html") {
+    logo = "ri-html5-line"; suffix = ".html"; type = "file";
+    src = "assets/icons/html.svg";
+  }
+
+  title = title + suffix;
+  let obj = { name: title, type: type, icon: logo };
+  filesData.desktop.push(obj);
+
+  let newEle = document.createElement("div");
+  newEle.classList.add("window-app");
+  newEle.innerHTML = `
+    <img src="${src}" alt="${title}">
+    <p>${title}</p>
+  `;
+  document.getElementById("container").appendChild(newEle);
+
+  document.getElementById("title-input").value = null;
+  createInput.style.display="none";
+  createState=false;
+};
+
+
+document.getElementById("close-browser").addEventListener("click",()=>{
+  document.getElementById("browser").style.display="none";
+  browserStatus=false;
+});
+
+
+document.getElementById("search").addEventListener("click",(e)=>{
+  handleActiveStates(e);
+  document.getElementById("browser").style.display="flex";
+  browserStatus=true;
 });

@@ -18,7 +18,7 @@ body {
   justify-content: center;
   font-family: "Segoe UI", sans-serif;
   color: white;
-  z-index: 1;
+  z-index: -1;
 }
 
 
@@ -40,4 +40,146 @@ body {
 
 .files-toggle{
   display: none;
+}
+
+#container{
+  position: absolute;
+  top: 40px;
+  left: 0px;
+  padding: 8px;
+  height: calc(100% - 40px);
+  width: 100%;
+  background-color: rgba(0, 0, 0,0);
+  z-index: 0; 
+  display: flex;
+  align-items: start;
+  justify-content: start; 
+  flex-direction: column;
+  gap: 4px;
+  flex-wrap: wrap;
+}
+
+.rightClick{
+  position: fixed;
+  height: 120px;
+  width: 200px; 
+  background-color: #1E1E1E;
+  padding: 0 10px;
+  display: flex;
+  align-items: start;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  border-radius: 4px;
+  font-size: 1em;
+  display: none;
+}
+
+.rightClick div{
+  width: 100%;
+  padding: 0 0 0 10px;  
+  display: flex;
+  gap: 4px;
+  cursor: pointer;
+  &:hover{
+    background-color: #515151;  
+  } 
+}
+.window-app{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 75px;
+  width: 75px;
+}
+.window-app img{
+  width: 45px;
+}
+
+.window-app p{
+  font-size: 0.7rem;
+}
+
+.create-input{
+  height: 210px;
+  width: 400px;
+  background-color: #1E1E1E;
+  position: absolute; 
+  border-radius: 16px;
+  padding: 12px;
+  display: flex;
+  align-items: end;
+  justify-content:start;
+  flex-direction: column;
+  gap: 10px;
+  display: none;
+}
+
+input{
+  width: 100%;
+  outline: none;
+  border: none;
+  padding: 5px;
+  background-color: #515151;
+  color: white;
+}
+
+.create-div{
+  margin-top: 20px;
+  width: 100%;
+}
+.create-input-options label{
+  display: flex;
+  gap: 5px;
+}
+
+.create-input-options{
+  display: flex;
+  gap: 10px;
+  width: 100%;
+  align-items: center;
+  justify-content: space-evenly;
+}
+.create-input-options input{
+  width: 10px;
+}
+
+.create-button{
+  border: none;
+  outline: none;
+  padding: 4px 6px;
+  background-color: #0075FF;
+  height: 40px;
+  width: 90px;
+  font-weight: 700;
+  color: white;
+  border-radius: 6px;
+  font-size: 1.2rem;
+}
+
+#cancel-creation{
+  font-weight: 700;
+  font-size: 1.5rem;
+  cursor: pointer;
+  position: absolute;
+}
+
+#browser{
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  width: 400px;
+  background-color: #1E1E1E;
+  padding: 20px;
+  display: none;
+}
+
+#close-browser{
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  cursor: pointer;
+  border-radius: 4px;
+  
 }

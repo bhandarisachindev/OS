@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (overlay) overlay.style.display = 'none';
   }
 
-  function addToDesktop(fileObj) {
+ function addToDesktop(fileObj){
     if (!fileObj.name.includes('*')) {
       filesData['desktop'].push(fileObj);
       if (currentLocation === 'desktop') {

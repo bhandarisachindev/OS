@@ -6,8 +6,6 @@ const toggleBtn = document.getElementById('toggle-picker');
 const pickerContainer = document.getElementById('picker-container');
 
 
-
-
 let state = {
 pickedColors: [],
 isPickingActive: false,

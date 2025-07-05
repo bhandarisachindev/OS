@@ -31,7 +31,8 @@ export const filesData = {
     { "name": "Notes*", "type": "file", "icon": "ri-sticky-note-line" },
     { "name": "To-Do List*", "type": "file", "icon": "ri-task-line" },
     { "name": "Meeting_Schedule.xlsx*", "type": "file", "icon": "ri-file-excel-line" },
-    { "name": "Wallpaper.jpg*", "type": "file", "icon": "ri-image-line" }
+    { "name": "Wallpaper.jpg*", "type": "file", "icon": "ri-image-line" },
+    
   ],
 
   "media": [

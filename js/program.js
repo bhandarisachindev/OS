@@ -97,7 +97,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const end = codeEditor.selectionEnd;
       codeEditor.value = codeEditor.value.substring(0, start) + '    ' + codeEditor.value.substring(end);
       codeEditor.selectionStart = codeEditor.selectionEnd = start + 4;
-      updateLineNumbers();
       highlightCode();
     }
   }

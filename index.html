@@ -19,6 +19,8 @@
   </head>
   <body>
     <div id="top-brightness"></div>
+    <div id="container">
+    </div>
     <top-bar></top-bar>
     <bottom-bar></bottom-bar>
     <app-menu></app-menu> 
@@ -34,14 +36,53 @@
       <app-top-bar></app-top-bar>
       <files-app></files-app>
     </div>
+
+    <div class="rightClick">
+     <div id="create-folder"><i class="ri-folder-2-line"></i>Create Folder</div>
+     <div id="create-text"><i class="ri-file-text-line"></i>Text File</div>
+     <div id="create-html"><i class="ri-html5-line"></i>Html File</div>
+     <div id="Wallpaper-change"><i class="ri-window-2-line"></i>Next Wallpaper</div>
+    </div>
     
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
-    <script async src="https://cse.google.com/cse.js?cx=56611e7a4aa08499a"></script>   
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
-    <script type="module" src="js/components.js"></script>  
-    <script type="module" src="js/program.js"></script>
-    <script type="module" src="js/files.js"></script>
-    <script type="module" src="js/app.js"></script>
+<div class="create-input" id="create-input">
+  <span id="cancel-creation">X</span>
+  <div class="create-div" id="create-div-title">
+    <p>Title</p>
+    <input type="text" id="title-input" class="title-input">
+  </div>
+
+    <div class="create-div" id="create-div-type">
+      <p>Type</p>
+      <div class="create-input-options" id="create-input-options">
+        <label>
+          <input type="radio" name="type" id="radio-folder" value="folder">
+          <p>Folder</p>
+        </label>
+        <label>
+          <input type="radio" name="type" id="radio-text" value="text">
+          <p>Text</p>
+        </label>
+        <label>
+          <input type="radio" name="type" id="radio-html" value="html">
+          <p>Html</p>
+        </label>
+      </div>
+    </div>
+
+    <button class="create-button" id="create-button">Create</button>
+</div>
+
+<div id="browser">
+  <p id="close-browser">X</p>
+  <h3>Web browser coming soon — currently under development.</h3>
+</div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+  <script async src="https://cse.google.com/cse.js?cx=56611e7a4aa08499a"></script>   
+  <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.11/index.global.min.js"></script>
+  <script type="module" src="js/components.js"></script>  
+  <script type="module" src="js/program.js"></script>
+  <script type="module" src="js/files.js"></script>
+  <script type="module" src="js/app.js"></script>
 
   </body>
 </html>
