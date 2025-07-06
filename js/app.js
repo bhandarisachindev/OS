@@ -448,8 +448,8 @@ document.querySelectorAll(".app-bar-close").forEach((ele) => {
     if (appsDiv) {
       appsDiv.style.display = "none";
     }
-    if (appsDiv.classList.contains("files-toggle")) fileFS = !fileFS;
-    if (appsDiv.classList.contains("code-toggle")) codeFS = !codeFS;
+    if (appsDiv.classList.contains("files-toggle")) fileFS = false;
+    if (appsDiv.classList.contains("code-toggle")) codeFS = false;
     topBottom();
   });
 });
@@ -646,7 +646,7 @@ createButton.addEventListener("click", createDesktopItem);
 
 document.getElementById("title-input").addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
-    createDesktopItem();
+    createDesktopItem();  
   }
 });
 
